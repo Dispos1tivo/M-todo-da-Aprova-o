@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090B">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Capas do Combo PMMG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Saira+Condensed:wght@700;800;900&family=Saira:wght@600;700&display=swap">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#09090B; --bg-2:#0F0F12; --surface:#141417; --surface-2:#1B1B1F; --surface-3:#26262B;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    --text:#FAFAFA; --text-2:#D4D4D8; --text-3:#A1A1AA; --text-4:#71717A;
+    --y-300:#FFD43B; --y-500:#F6C111; --y-900:#3D2E05;
+    --y-a10:rgba(246,193,17,.10); --y-a20:rgba(246,193,17,.20); --y-a30:rgba(246,193,17,.32);
+    --success:#3DD68C; --danger:#E05555;
+    --f-display:"Saira Condensed","Arial Narrow",Impact,sans-serif;
+    --f-head:"Saira","Segoe UI",system-ui,sans-serif;
+    --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+    --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --bgk:#0E0E10; --fg:#FAFAFA; --ac:#F6C111; --hl:#F6C111;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--bg)}
+  body{color:var(--text);font:400 16px/1.6 var(--f-body);padding-inline:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1160px;margin:0 auto}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  p{margin:0}
+  .eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y-300)}
+
+  /* ===== logo (classes do SVG) ===== */
+  .e-ac{fill:var(--ac)} .e-fg{fill:var(--fg)} .e-hl{fill:var(--hl)} .e-bg{fill:var(--bgk)}
+  .e-ring{fill:none;stroke:var(--ac)} .e-ko{stroke:var(--bgk);paint-order:stroke;stroke-linejoin:round}
+  .e-chev{fill:none;stroke:var(--ac)} .e-sh{stroke:var(--ac)}
+  .logo-txt{font-family:var(--f-display);text-transform:uppercase}
+
+  /* ===== CAPA (escala sozinha pelo tamanho) ===== */
+  .cv{container-type:inline-size;width:100%;aspect-ratio:1/1.414;position:relative}
+  .cv-in{position:absolute;inset:0;overflow:hidden;background:
+      radial-gradient(circle at 50% 18%,rgba(246,193,17,.13),transparent 55%),
+      linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/6cqw 6cqw,
+      linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/6cqw 6cqw,
+      var(--bgk);
+    border-radius:.6cqw 1.6cqw 1.6cqw .6cqw;
+    display:grid;grid-template-rows:auto auto auto auto minmax(0,1fr) auto;justify-items:center;text-align:center;
+    padding:6cqw 7cqw 5cqw 11cqw;color:var(--text)}
+  .cv-in::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4cqw;background:var(--y-500)}
+  .cv-in::after{content:"";position:absolute;inset:3.2cqw 3.2cqw 3.2cqw 7.2cqw;border:.25cqw solid var(--y-a30);pointer-events:none;
+    clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+  .cv .tick{position:absolute;width:4cqw;height:4cqw;border:0 solid var(--y-500)}
+  .cv .t1{top:3.2cqw;left:7.2cqw;border-width:.6cqw 0 0 .6cqw}.cv .t2{top:3.2cqw;right:3.2cqw;border-width:.6cqw .6cqw 0 0}
+  .cv .t3{bottom:3.2cqw;left:7.2cqw;border-width:0 0 .6cqw .6cqw}.cv .t4{bottom:3.2cqw;right:3.2cqw;border-width:0 .6cqw .6cqw 0}
+  .cv .emb{width:34cqw;position:relative;z-index:1}
+  .cv .emb svg{display:block;width:100%;height:auto}
+  .cv .tag{margin-top:2.4cqw;font:700 2.5cqw/1 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:1.1cqw 2cqw;position:relative;z-index:1}
+  .cv .ttl{margin-top:3cqw;font:900 var(--ts,10.5cqw)/.9 var(--f-display);text-transform:uppercase;letter-spacing:.005em;position:relative;z-index:1}
+  .cv .ttl .y{color:var(--y-500)}
+  .cv .ttl .big{display:block;font-size:1.55em;color:var(--y-500);line-height:.9}
+  .cv .sub{margin-top:2.4cqw;font:500 3.3cqw/1.3 var(--f-body);color:var(--text-2);position:relative;z-index:1;max-width:66cqw}
+  .cv .art{width:100%;min-height:0;display:grid;place-items:center;padding-block:2.6cqw;position:relative;z-index:1}
+  .cv .art svg{width:100%;height:100%;max-height:100%;display:block}
+  .cv .foot{display:flex;justify-content:space-between;align-items:center;width:100%;font:600 2.2cqw/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-4);border-top:.25cqw solid var(--line-2);padding-top:2.2cqw;position:relative;z-index:1}
+  .cv .foot b{color:var(--y-300);font-weight:700}
+  /* elementos das ilustrações */
+  .s-y{stroke:var(--y-500)} .f-y{fill:var(--y-500)} .f-ya{fill:rgba(246,193,17,.18)} .s-ya{stroke:rgba(246,193,17,.35)}
+  .s-g{stroke:#3A3A40} .f-bg{fill:var(--bgk)} .f-t{fill:var(--text-3)}
+  .cv .lst{list-style:none;margin:0;padding:0;display:grid;gap:1.9cqw;text-align:left;font:600 3cqw/1.2 var(--f-body);color:var(--text-2)}
+  .cv .lst li{display:flex;gap:1.6cqw;align-items:center}
+  .cv .lst i{width:3.6cqw;height:3.6cqw;border-radius:.8cqw;background:var(--y-500);flex:none;display:grid;place-items:center}
+  .cv .lst i svg{width:70%;height:70%}
+  .cv .duo{display:grid;grid-template-columns:1fr 1.05fr;gap:4cqw;align-items:center;width:100%;height:100%}
+  .cv .chat{width:88%;border:.3cqw solid var(--line-2);border-radius:2cqw;background:rgba(20,20,23,.85);text-align:left;overflow:hidden}
+  .cv .chat .bar{display:flex;gap:1cqw;padding:1.6cqw 2cqw;border-bottom:.3cqw solid var(--line)}
+  .cv .chat .bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:var(--surface-3)}
+  .cv .chat .bar i:first-child{background:var(--y-500)}
+  .cv .chat .row{display:flex;gap:2cqw;align-items:center;padding:1.9cqw 2.4cqw;border-top:.3cqw solid var(--line);font:600 3cqw/1.2 var(--f-body)}
+  .cv .chat .row:first-of-type{border-top:0}
+  .cv .chat .row span{width:5cqw;height:5cqw;border-radius:1.2cqw;background:var(--y-a20);display:grid;place-items:center;flex:none}
+  .cv .chat .row svg{width:60%;height:60%;stroke:var(--y-500);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .cv .lv{display:flex;justify-content:center;gap:1.4cqw;margin-top:2cqw;flex-wrap:wrap}
+  .cv .lv span{font:700 2.3cqw/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:1cqw 1.6cqw;border:.25cqw solid var(--y-a30);color:var(--y-300);border-radius:.8cqw}
+  .cv .note{font:500 2.8cqw/1.35 var(--f-body);color:var(--text-3);margin-top:1.4cqw}
+  /* planner com espiral */
+  .cv.spiral .cv-in::before{width:6cqw;background:
+     repeating-linear-gradient(to bottom,transparent 0 2cqw,#B8B8C0 2cqw 3cqw,#5A5A62 3cqw 3.6cqw,transparent 3.6cqw 4.6cqw),#060607}
+  .cv.spiral .cv-in{padding-left:12cqw}
+
+  /* ===== mockup livro 3D ===== */
+  .b3d{perspective:1800px;display:grid;place-items:center;padding:6% 8% 10%}
+  .bk{position:relative;width:100%;transform-style:preserve-3d;transform:rotateY(24deg) rotateX(3deg);transition:transform .8s var(--ease)}
+  .b3d:hover .bk{transform:rotateY(12deg) rotateX(2deg)}
+  .bk .spine{position:absolute;top:0;bottom:0;right:100%;width:9%;transform-origin:right center;transform:rotateY(-90deg);background:linear-gradient(90deg,#050506,#141417 60%,#0B0B0C);display:grid;place-items:center;overflow:hidden;border-radius:2px 0 0 2px}
+  .bk .spine::before{content:"";position:absolute;left:0;right:0;top:6%;height:5%;background:var(--y-500)}
+  .bk .spine::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:1.5%;background:var(--y-500)}
+  .bk .spine span{writing-mode:vertical-rl;transform:rotate(180deg);font:800 clamp(10px,1.4vw,15px)/1 var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);white-space:nowrap}
+  .bk .cv{box-shadow:0 40px 60px -30px rgba(0,0,0,.9)}
+  .bk .cv-in{box-shadow:inset 3px 0 6px rgba(255,255,255,.08)}
+  .b3d .floor{width:80%;height:22px;margin-top:-6px;background:radial-gradient(closest-side,rgba(0,0,0,.75),transparent);filter:blur(4px)}
+  .b3d .shine{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.07),transparent 38%);pointer-events:none;border-radius:inherit}
+
+  /* ===== tablet e celular ===== */
+  .tab{background:#050506;border:1px solid #2A2A30;border-radius:22px;padding:14px;box-shadow:0 40px 70px -30px #000,inset 0 0 0 2px #111}
+  .tab .scr{border-radius:10px;overflow:hidden;background:#0E0E10;display:grid;place-items:center;aspect-ratio:3/4}
+  .tab .scr .cv{width:94.3%}
+  .phn{background:#050506;border:1px solid #2A2A30;border-radius:26px;padding:9px;box-shadow:0 30px 60px -24px #000}
+  .phn .scr{border-radius:18px;overflow:hidden;aspect-ratio:9/19.5;background:#0E0E10;display:grid;place-items:center}
+  .phn .scr .cv{width:100%}
+
+  /* ===== página ===== */
+  header.doc{padding-block:56px 28px;display:grid;gap:16px}
+  header.doc h1{font:800 clamp(42px,7vw,84px)/.92 var(--f-display);text-transform:uppercase}
+  header.doc h1 span{color:var(--y-500)}
+  header.doc p{font-size:18px;color:var(--text-2);max-width:64ch}
+  .sys{display:flex;flex-wrap:wrap;gap:8px}
+  .sys span{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--text-3)}
+
+  .thumbs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;margin-inline:-16px;padding:10px 16px;background:rgba(9,9,11,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-block:1px solid var(--line)}
+  .thumbs-in{max-width:1160px;margin:0 auto;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
+  .thumbs-in::-webkit-scrollbar{display:none}
+  .th{flex:none;display:flex;gap:10px;align-items:center;padding:6px 12px 6px 6px;border-radius:10px;border:1px solid var(--line);text-decoration:none;color:var(--text-2);transition:border-color .2s,background .2s}
+  .th:hover,.th.on{border-color:var(--y-a30);background:var(--y-a10)}
+  .th .mini{width:34px}
+  .th span{display:grid;line-height:1.2}
+  .th small{font:600 10px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--y-300)}
+  .th b{font:600 13px/1.2 var(--f-body);white-space:nowrap}
+
+  .prod{padding-block:64px;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center;scroll-margin-top:80px}
+  .stage{position:relative;border-radius:20px;border:1px solid var(--line);background:radial-gradient(circle at 50% 30%,rgba(246,193,17,.12),transparent 60%),var(--bg-2);overflow:hidden}
+  .stage .b3d{max-width:420px;margin:0 auto}
+  .info{display:grid;gap:18px;align-content:start}
+  .kind{display:flex;gap:10px;align-items:center}
+  .kind .n{font:700 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:6px 9px;border-radius:4px}
+  .kind .k{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-4)}
+  .info h2{font:800 clamp(34px,4.6vw,52px)/.95 var(--f-display);text-transform:uppercase}
+  .info .desc{color:var(--text-2)}
+  .pair{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;align-items:start}
+  .pair .flat{border-radius:4px;overflow:hidden}
+  .pair .flat-cap{font:600 10px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);margin-top:8px;text-align:center}
+  .chg{display:grid;gap:12px}
+  .chg div{padding:14px 16px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+  .chg h4{margin:0 0 6px;font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-4)}
+  .chg ul{margin:0;padding-left:18px;font-size:14px;color:var(--text-2);display:grid;gap:3px}
+
+  .kit{padding-block:72px;border-top:1px solid var(--line);display:grid;gap:28px}
+  .kit h2,.todo h2{font:800 clamp(34px,5vw,56px)/1 var(--f-display);text-transform:uppercase}
+  .kit-stage{position:relative;border-radius:22px;border:1px solid var(--line-2);overflow:hidden;padding:clamp(24px,5vw,56px) 16px clamp(32px,5vw,56px);
+    background:radial-gradient(ellipse 60% 55% at 50% 40%,rgba(246,193,17,.2),transparent 70%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/44px 44px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/44px 44px,#060607}
+  .ktabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:clamp(20px,4vw,40px)}
+  .ktab{all:unset;cursor:pointer;padding:10px 16px;border-radius:999px;border:1px solid var(--line-2);font:600 13px/1 var(--f-body);color:var(--text-3);background:rgba(255,255,255,.02);transition:.2s}
+  .ktab:hover{color:var(--text);border-color:var(--y-a30)}
+  .ktab[aria-selected="true"]{background:var(--y-500);border-color:var(--y-500);color:#0B0B0C}
+  .ktab:focus-visible{outline:2px solid var(--y-500);outline-offset:3px}
+  .kview[hidden]{display:none}
+  .kcap{text-align:center;margin-top:18px;font-size:14px;color:var(--text-3)}
+  .kl{font:600 10px/1.3 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);text-align:center;margin-top:6px}
+  .kl b{color:var(--y-300);font-weight:700}
+  .bk{transform:rotateY(var(--ry,24deg)) rotateX(3deg)}
+  .b3d:hover .bk{transform:rotateY(calc(var(--ry,24deg) * .45)) rotateX(2deg)}
+  .b3d.sm{padding:0}
+  .b3d.sm .floor{height:16px}
+  .b3d.sm .spine span{font-size:clamp(6px,.8vw,10px)}
+
+  /* opção 1: vitrine */
+  .shelf{display:flex;align-items:flex-end;justify-content:center;max-width:1040px;margin:0 auto;padding-inline:4%}
+  .shelf .it{flex:none;margin-inline:-1.2%;position:relative}
+  .shelf .it:nth-child(1),.shelf .it:nth-child(7){width:12%}
+  .shelf .it:nth-child(2),.shelf .it:nth-child(6){width:14%}
+  .shelf .it:nth-child(3),.shelf .it:nth-child(5){width:16%}
+  .shelf .it:nth-child(4){width:20%}
+
+  /* opção 2: grade */
+  .grid-kit{max-width:900px;margin:0 auto;display:grid;gap:clamp(20px,3vw,34px)}
+  .grid-kit .main{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,3vw,36px);max-width:560px;margin:0 auto;width:100%}
+  .grid-kit .bon{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(10px,2vw,20px)}
+  .grid-kit .cv{box-shadow:0 26px 44px -22px #000}
+  .grid-kit .sep{display:flex;align-items:center;gap:14px;font:600 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--y-300)}
+  .grid-kit .sep::before,.grid-kit .sep::after{content:"";flex:1;height:1px;background:var(--y-a30)}
+
+  /* opção 3: camadas */
+  .layers{max-width:960px;margin:0 auto;position:relative}
+  .layers .back{display:flex;justify-content:center;gap:1.5%;padding-inline:2%}
+  .layers .back .it{width:15%}
+  .layers .front{display:flex;justify-content:center;gap:4%;margin-top:-16%;position:relative;z-index:2}
+  .layers .front .it{width:24%}
+  .layers::after{content:"";position:absolute;left:10%;right:10%;bottom:-4%;height:18%;background:radial-gradient(closest-side,rgba(246,193,17,.22),transparent);z-index:0;pointer-events:none}
+
+  @media (max-width:640px){
+    .shelf{flex-wrap:wrap;gap:14px 0}
+    .shelf .it{width:30%!important;margin-inline:1%}
+    .grid-kit .bon{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .layers .back{flex-wrap:wrap;gap:10px 3%}
+    .layers .back .it{width:28%}
+    .layers .front{margin-top:18px}
+    .layers .front .it{width:42%}
+  }
+  .devices{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:center}
+  .dev-stage{display:flex;align-items:flex-end;justify-content:center;gap:0;padding:28px 12px;border-radius:20px;border:1px solid var(--line);background:radial-gradient(circle at 60% 40%,rgba(246,193,17,.16),transparent 60%),var(--bg-2)}
+  .dev-stage .tab{width:58%}
+  .dev-stage .phn{width:26%;margin-left:-8%;margin-bottom:-6px;position:relative;z-index:2}
+
+  .todo{padding-block:64px;border-top:1px solid var(--line);display:grid;gap:22px}
+  .todo-list{display:grid;gap:12px}
+  .todo-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:18px 20px;border-radius:12px;border:1px dashed var(--line-2);background:var(--bg-2)}
+  .todo-item .ic{width:30px;height:30px;border-radius:50%;background:var(--y-a20);color:var(--y-500);display:grid;place-items:center}
+  .todo-item .ic svg{width:15px;height:15px}
+  .todo-item b{font:600 16px/1.35 var(--f-head);display:block;margin-bottom:4px}
+  .todo-item p{font-size:14.5px;color:var(--text-3)}
+  footer{border-top:1px solid var(--line);padding-block:28px 56px;font:500 12px/1.6 var(--f-mono);color:var(--text-4)}
+
+  @media (max-width:860px){
+    .prod,.devices{grid-template-columns:1fr}
+    .fan .it{width:28%}.fan .it.main{width:32%}
+  }
+  @media (max-width:520px){
+    .pair{grid-template-columns:110px minmax(0,1fr)}
+    .fan{height:300px}
+    .fan .it{width:34%}.fan .it.main{width:40%}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="st" viewBox="-1 -1 2 2"><polygon points="0,-1 .2351,-.3236 .9511,-.309 .3804,.1236 .5878,.809 0,.4 -.5878,.809 -.3804,.1236 -.9511,-.309 -.2351,-.3236"/></symbol>
+    <symbol id="ck" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<template id="t-emblem">
+  <svg viewBox="0 0 480 480" aria-hidden="true">
+    <circle class="e-ring" cx="240" cy="240" r="212" stroke-width="3"/>
+    <circle class="e-ring" cx="240" cy="240" r="200" stroke-width="1.5" opacity=".35"/>
+    <g class="e-ac">
+      <polygon points="26,112 172,112 172,132 44,132"/><polygon points="50,142 172,142 172,162 68,162"/><polygon points="74,172 172,172 172,192 92,192"/>
+      <polygon points="454,112 308,112 308,132 436,132"/><polygon points="430,142 308,142 308,162 412,162"/><polygon points="406,172 308,172 308,192 388,192"/>
+    </g>
+    <path class="e-bg e-sh" stroke-width="5" d="M240 50 316 76V146c0 48-32 78-76 100-44-22-76-52-76-100V76z"/>
+    <path fill="none" class="e-sh" stroke-width="1.5" opacity=".4" d="M240 68 300 88V146c0 38-26 62-60 80-34-18-60-42-60-80V88z"/>
+    <use href="#st" x="198" y="104" width="84" height="84" class="e-ac"/>
+    <g class="e-ac"><rect x="66" y="252" width="86" height="3"/><rect x="328" y="252" width="86" height="3"/></g>
+    <g transform="translate(37 0) skewX(-8)"><text class="logo-txt e-fg" x="240" y="268" text-anchor="middle" font-size="42" font-weight="800" letter-spacing="1">Método da</text></g>
+    <g transform="translate(44 0) skewX(-8)"><text class="logo-txt e-hl e-ko" x="240" y="358" text-anchor="middle" font-size="108" font-weight="900" stroke-width="14" textLength="404" lengthAdjust="spacingAndGlyphs">Aprovação</text></g>
+    <path class="e-ac" d="M58 378Q240 356 422 378Q240 368 58 378z"/>
+    <use href="#st" x="193" y="387" width="22" height="22" class="e-ac"/>
+    <use href="#st" x="224" y="380" width="32" height="32" class="e-ac"/>
+    <use href="#st" x="265" y="387" width="22" height="22" class="e-ac"/>
+    <polyline class="e-chev" stroke-width="8" points="206,416 240,431 274,416"/>
+    <polyline class="e-chev" stroke-width="8" points="206,430 240,445 274,430"/>
+  </svg>
+</template>
+
+<main class="wrap">
+  <header class="doc">
+    <span class="eyebrow">Método da Aprovação · Combo PMMG 2027</span>
+    <h1>Capas <span>novas</span></h1>
+    <p>As 7 capas redesenhadas a partir das suas referências, agora na identidade aprovada: logo nova, amarelo #F6C111, fundo grafite com grade e Saira Condensed. Todas seguem a mesma estrutura, para o kit parecer uma coleção. Os títulos e subtítulos são os das suas capas.</p>
+    <div class="sys"><span>Faixa amarela na lombada</span><span>Moldura com cantos de mira</span><span>Etiqueta amarela com o tipo</span><span>Ilustração de linha por produto</span><span>Rodapé com o nome do combo</span></div>
+  </header>
+
+  <nav class="thumbs" aria-label="Capas"><div class="thumbs-in" id="thumbs"></div></nav>
+
+  <div id="prods"></div>
+
+  <section class="kit" id="kit">
+    <div><span class="eyebrow">Tudo junto</span><h2 style="margin-top:10px">O kit completo</h2><p style="color:var(--text-3);margin-top:10px;max-width:60ch">Composição com as 7 capas, que pode virar a imagem do hero e da oferta no site.</p></div>
+    <div class="kit-stage">
+      <div class="ktabs" role="tablist" aria-label="Opções de composição">
+        <button class="ktab" role="tab" aria-selected="true" data-v="k1">Opção 1 · Vitrine</button>
+        <button class="ktab" role="tab" aria-selected="false" data-v="k2">Opção 2 · Grade</button>
+        <button class="ktab" role="tab" aria-selected="false" data-v="k3">Opção 3 · Camadas</button>
+      </div>
+      <div class="kview" id="k1"><div class="shelf" id="shelf"></div><p class="kcap">Os 7 livros em pé, lado a lado, com as Apostilas no centro. Boa para o hero.</p></div>
+      <div class="kview" id="k2" hidden><div class="grid-kit" id="gridkit"></div><p class="kcap">Capas planas, todas legíveis: os 2 produtos em cima e os 5 bônus embaixo. Boa para a oferta.</p></div>
+      <div class="kview" id="k3" hidden><div class="layers" id="layers"></div><p class="kcap">Os 5 bônus atrás e os 2 produtos na frente, maiores. Mostra a hierarquia do combo.</p></div>
+    </div>
+    <div class="devices">
+      <div class="dev-stage" id="dev1"></div>
+      <div class="dev-stage" id="dev2"></div>
+    </div>
+  </section>
+
+  <section class="todo">
+    <div><span class="eyebrow">Antes de aprovar</span><h2 style="margin-top:10px">Pontos para confirmar</h2></div>
+    <div class="todo-list" id="todo"></div>
+  </section>
+
+  <footer>Capas do Combo da Aprovação PMMG 2027 · proposta v1 · Método da Aprovação</footer>
+</main>
+
+<script>
+const EMB = document.getElementById('t-emblem').innerHTML;
+const ck = '<svg viewBox="0 0 24 24"><use href="#ck"/></svg>';
+
+const ART = {
+  star:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+    <g fill="none" stroke-width="1.2" class="s-ya"><path d="M0 0 78 44M240 0 162 44M0 150 78 106M240 150 162 106"/></g>
+    <circle cx="120" cy="75" r="66" fill="none" class="s-ya" stroke-width="1.4" stroke-dasharray="3 5"/>
+    <circle cx="120" cy="75" r="48" fill="none" class="s-y" stroke-width="1.6" opacity=".7"/>
+    <g class="s-y" stroke-width="2" stroke-linecap="round"><path d="M22 75h32M186 75h32M120 2v14M120 134v14"/></g>
+    <use href="#st" x="78" y="31" width="84" height="84" class="f-y"/>
+    <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(22 28)"><path d="M0 2h8a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H0z"/><path d="M24 2h-8a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h9z"/></g>
+    <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" transform="translate(194 30)"><circle cx="10" cy="10" r="9"/><path d="m14 6-2 6-6 2 2-6z"/></g>
+  </svg>`,
+  sheet:(()=>{let s='<svg viewBox="0 0 112 132" preserveAspectRatio="xMidYMid meet"><rect x="1" y="1" width="110" height="130" rx="4" fill="none" class="s-ya" stroke-width="1.2"/>';
+    for(let r=0;r<6;r++){const y=18+r*20;s+=`<text x="10" y="${y+4}" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" class="f-t">${String(r+1).padStart(2,'0')}</text>`;
+      for(let k=0;k<4;k++){const on=k===(r*3+1)%4;s+=`<circle cx="${36+k*19}" cy="${y}" r="6.5" ${on?'class="f-y"':'fill="none" class="s-y" stroke-width="1.2" opacity=".6"'}/>`;
+        if(r===0)s+=`<text x="${36+k*19}" y="${y-10}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7" class="f-t">${'ABCD'[k]}</text>`;}}
+    return s+'</svg>';})(),
+  doc:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+    <rect x="62" y="6" width="112" height="138" rx="6" fill="rgba(20,20,23,.9)" class="s-y" stroke-width="2"/>
+    <rect x="62" y="6" width="112" height="22" rx="6" class="f-ya"/>
+    <text x="118" y="21" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="700" class="f-y" letter-spacing="1.5">EDITAL PMMG</text>
+    ${[0,1,2,3,4].map(i=>{const y=44+i*20,on=i<3,w=[62,50,56,44,58][i];return `<rect x="76" y="${y-6}" width="11" height="11" rx="2.5" ${on?'class="f-y"':'fill="none" class="s-y" stroke-width="1.4"'}/>${on?`<path d="m78.5 ${y} 2.5 2.5 4-5" fill="none" stroke="#0B0B0C" stroke-width="1.8" stroke-linecap="round"/>`:''}<rect x="94" y="${y-2.5}" width="${w}" height="4" rx="2" fill="${on?'#52525B':'#3A3A40'}"/>`}).join('')}
+    <circle cx="172" cy="106" r="22" fill="#0E0E10" class="s-y" stroke-width="4"/>
+    <path d="m188 122 20 20" class="s-y" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="172" cy="106" r="12" fill="none" class="s-ya" stroke-width="1.5"/>
+  </svg>`,
+  grid30:(()=>{let s='<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">';
+    const days=['S','T','Q','Q','S','S'];days.forEach((d,i)=>s+=`<text x="${45+i*30}" y="10" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" class="f-t">${d}</text>`);
+    for(let i=0;i<30;i++){const c=i%6,r=Math.floor(i/6),x=32+c*30,y=18+r*25,done=i<17,cur=i===17;
+      s+=`<rect x="${x}" y="${y}" width="26" height="21" rx="3" ${done?'class="f-ya"':cur?'fill="none" class="s-y" stroke-width="2"':'fill="none" class="s-g" stroke-width="1.2"'}/>`;
+      s+=`<text x="${x+4}" y="${y+8}" font-family="JetBrains Mono,monospace" font-size="6.5" ${cur?'class="f-y"':'class="f-t"'}>${i+1}</text>`;
+      if(done)s+=`<path d="m${x+10} ${y+13} 3 3 6-7" fill="none" class="s-y" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;}
+    return s+'</svg>';})(),
+  week:(()=>{let s='<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">';
+    const d=['SEG','TER','QUA','QUI','SEX','SÁB','DOM'],h=[[26,18,22],[30,20],[18,26,16],[28,22],[22,18,24],[34],[14]];
+    d.forEach((l,i)=>{const x=14+i*31;s+=`<text x="${x+13}" y="146" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700" class="f-t">${l}</text>`;
+      let y=132;h[i].forEach((hh,k)=>{y-=hh+3;s+=`<rect x="${x}" y="${y}" width="26" height="${hh}" rx="3" ${k===0?'class="f-y"':k===1?'class="f-ya"':'fill="none" class="s-y" stroke-width="1.3"'}/>`;});});
+    s+='<path d="M8 135h226" class="s-g" stroke-width="1.2"/>';
+    return s+'</svg>';})(),
+  chart:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+    <g class="s-g" stroke-width="1"><path d="M20 20h210M20 55h210M20 90h210M20 125h210"/></g>
+    ${[18,26,34,46,58,72,88,104].map((h,i)=>`<rect x="${26+i*26}" y="${125-h}" width="16" height="${h}" rx="2" ${i===7?'class="f-y"':'class="f-ya"'}/>`).join('')}
+    <polyline points="34,100 60,92 86,84 112,74 138,62 164,48 190,34 216,16" fill="none" class="s-y" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    ${[[34,100],[86,84],[138,62],[190,34]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" class="f-y"/>`).join('')}
+    <path d="m206 14 12 1-3 11" fill="none" class="s-y" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(22 24) scale(.9)"><circle cx="14" cy="4" r="2.5"/><path d="m6 22 3-6 3 2v4M4 12l3-3 4 1 3 3 3 1M9 9l2-3h3"/></g>
+  </svg>`
+};
+
+const P = [
+  {id:'apostilas',n:'Produto 1',k:'Produto principal',name:'Apostilas do Edital Completo',ts:'10cqw',tag:'Apostilas · 5 volumes',
+   ttl:'Apostilas do<br><span class="y">Edital Completo</span>',sub:'Todo o conteúdo organizado conforme o edital oficial',art:ART.star,spine:'Apostilas do Edital Completo',
+   kept:['Estrela grande no centro com linhas de compasso','Ícones de livro e bússola','Título e subtítulo iguais'],chg:['Estrela chapada em amarelo, sem relevo dourado','"Edital Completo" em amarelo para destacar','Etiqueta com os 5 volumes']},
+  {id:'simulados',n:'Produto 2',k:'Produto principal',name:'Simulados Padrão CRS',ts:'10.5cqw',tag:'Simulados · 5 volumes',
+   ttl:'Simulados<br><span class="y">Padrão CRS</span>',sub:'Com gabarito comentado',
+   art:`<div class="duo">${ART.sheet}<ul class="lst">${['Padrão oficial CRS','Questões inéditas','Soluções detalhadas'].map(t=>`<li><i>${ck}</i>${t}</li>`).join('')}</ul></div>`,spine:'Simulados Padrão CRS',
+   kept:['Folha de respostas com as bolinhas','Lista com ✓ (sem “Análise estatística”)'],chg:['Folha redesenhada em linha, com as marcações em amarelo','Lista com marcadores amarelos, mais legível','Sem o prédio ao fundo: capa limpa']},
+  {id:'edital',n:'Bônus 1',k:'Bônus',name:'Edital Verticalizado',ts:'10.5cqw',tag:'Bônus 01',
+   ttl:'Edital<br><span class="y">Verticalizado</span>',sub:'Teoria • Revisão • Questões',art:ART.doc,spine:'Edital Verticalizado',
+   kept:['Título e o trio Teoria • Revisão • Questões','Documento com lupa'],chg:['Documento vira uma lista de tópicos marcados, que mostra o que o bônus faz','Moldura de título trocada pela etiqueta amarela']},
+  {id:'planner',n:'Bônus 2',k:'Bônus',name:'Planner de 30 Dias',ts:'10.5cqw',tag:'Bônus 02',spiral:true,
+   ttl:'Planner de<span class="big">30 dias</span>',sub:'',art:ART.grid30,spine:'Planner de 30 Dias',
+   kept:['Encadernação em espiral','"30 DIAS" como destaque principal','Ícones de calendário e checklist'],chg:['Nome ajustado para “Planner de 30 Dias”, igual ao da página','Calendário de 30 dias com os dias cumpridos marcados','Título em uma fonte só (a antiga misturava serifa)']},
+  {id:'crono',n:'Bônus 3',k:'Bônus',name:'Planejamento de Estudos',ts:'10cqw',tag:'Bônus 03',
+   ttl:'Planejamento<br><span class="y">de Estudos</span>',sub:'Cronograma semanal',art:ART.week,spine:'Planejamento de Estudos',
+   kept:['Título e subtítulo "Cronograma semanal"','Ideia de agenda da semana'],chg:['Nome “Planejamento de Estudos” também passa a valer na página de vendas','O emblema grande de asas saiu, porque a logo já traz asas no topo','Entrou uma semana de SEG a DOM com os blocos de estudo']},
+  {id:'prompts',n:'Bônus 4',k:'Bônus',name:'Prompts da Aprovação',ts:'10.5cqw',tag:'Bônus 04',
+   ttl:'Prompts da<br><span class="y">Aprovação</span>',sub:'Estude com IA sem se perder',
+   art:`<div class="chat"><div class="bar"><i></i><i></i><i></i></div>
+     <div class="row"><span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Plano de Estudos</div>
+     <div class="row"><span><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>Revisão</div>
+     <div class="row"><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 16h.01"/></svg></span>Resolução de Dúvidas</div></div>`,spine:'Prompts da Aprovação',
+   kept:['Janela de chat com Plano de Estudos, Revisão e Resolução de Dúvidas','Subtítulo "Estude com IA sem se perder"'],chg:['O subtítulo aparecia duas vezes na antiga; agora aparece uma','Saíram o cérebro, a lâmpada e o chip: o chat já explica o bônus']},
+  {id:'taf',n:'Bônus 5',k:'Bônus',name:'Plano de Treino para o TAF',ts:'9.4cqw',tag:'Bônus 05 · 3 níveis',
+   ttl:'Plano de Treino<br>para o <span class="y">TAF</span>',sub:'',
+   art:`<div style="display:grid;gap:1cqw;width:100%;height:100%;grid-template-rows:auto minmax(0,1fr) auto"><div class="lv"><span>Iniciante</span><span>Intermediário</span><span>Avançado</span></div>${ART.chart}<p class="note">Evolução semana a semana para conquistar os índices do edital.</p></div>`,spine:'Plano de Treino TAF',
+   kept:['"3 níveis" com Iniciante, Intermediário e Avançado','Gráfico de evolução e a frase dos índices do edital'],chg:['Os 3 níveis viraram etiquetas','Gráfico maior, com a linha subindo em amarelo','A estrela grande saiu para o gráfico ter espaço']}
+];
+
+function cover(p){
+  return `<div class="cv${p.spiral?' spiral':''}"><div class="cv-in" style="--ts:${p.ts}">
+    <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span>
+    <div class="emb">${EMB}</div>
+    <span class="tag">${p.tag}</span>
+    <div class="ttl">${p.ttl}</div>
+    ${p.sub?`<p class="sub">${p.sub}</p>`:'<span></span>'}
+    <div class="art">${p.art}</div>
+    <div class="foot"><span>Combo da Aprovação</span><b>PMMG 2027</b></div>
+  </div></div>`;
+}
+const book = p => `<div class="b3d"><div class="bk"><div class="spine"><span>${p.spine}</span></div>${cover(p)}<span class="shine"></span></div><div class="floor"></div></div>`;
+const li = a => a.map(t=>`<li>${t}</li>`).join('');
+
+document.getElementById('thumbs').innerHTML = P.map(p=>`<a class="th" href="#${p.id}"><div class="mini">${cover(p)}</div><span><small>${p.n}</small><b>${p.name}</b></span></a>`).join('') + `<a class="th" href="#kit"><span><small>Tudo junto</small><b>Kit completo</b></span></a>`;
+
+document.getElementById('prods').innerHTML = P.map(p=>`
+  <section class="prod" id="${p.id}">
+    <div class="stage">${book(p)}</div>
+    <div class="info">
+      <div class="kind"><span class="n">${p.n}</span><span class="k">${p.k}</span></div>
+      <h2>${p.name}</h2>
+      <div class="pair">
+        <div><div class="flat">${cover(p)}</div><div class="flat-cap">Capa plana</div></div>
+        <div class="chg"><div><h4>Mantido da sua capa</h4><ul>${li(p.kept)}</ul></div><div><h4>O que mudou</h4><ul>${li(p.chg)}</ul></div></div>
+      </div>
+    </div>
+  </section>`).join('');
+
+const sbook = (p,ry) => `<div class="b3d sm" style="--ry:${ry}deg"><div class="bk"><div class="spine"><span>${p.spine}</span></div>${cover(p)}<span class="shine"></span></div><div class="floor"></div></div>`;
+// opção 1: vitrine
+const shelfOrder=[3,2,1,0,5,4,6], shelfRy=[30,24,16,0,-16,-24,-30];
+document.getElementById('shelf').innerHTML = shelfOrder.map((ix,i)=>`<div class="it" style="z-index:${10-Math.abs(i-3)}">${sbook(P[ix],shelfRy[i])}</div>`).join('');
+// opção 2: grade
+document.getElementById('gridkit').innerHTML =
+  `<div class="sep">Produtos</div><div class="main">${[0,1].map(i=>`<div>${cover(P[i])}<div class="kl"><b>${P[i].n}</b> · ${P[i].name}</div></div>`).join('')}</div>`+
+  `<div class="sep">+ 5 bônus</div><div class="bon">${[2,3,4,5,6].map(i=>`<div>${cover(P[i])}<div class="kl"><b>${P[i].n}</b></div></div>`).join('')}</div>`;
+// opção 3: camadas
+document.getElementById('layers').innerHTML =
+  `<div class="back">${[2,3,4,5,6].map((ix,i)=>`<div class="it">${sbook(P[ix],[22,12,0,-12,-22][i])}</div>`).join('')}</div>`+
+  `<div class="front">${[0,1].map((ix,i)=>`<div class="it">${sbook(P[ix],[16,-16][i])}</div>`).join('')}</div>`;
+// abas
+const kt=[...document.querySelectorAll('.ktab')];
+kt.forEach(b=>b.addEventListener('click',()=>{kt.forEach(x=>{const on=x===b;x.setAttribute('aria-selected',on);document.getElementById(x.dataset.v).hidden=!on;});}));
+
+const dev = (a,b) => `<div class="tab"><div class="scr">${cover(P[a])}</div></div><div class="phn"><div class="scr">${cover(P[b])}</div></div>`;
+document.getElementById('dev1').innerHTML = dev(5,5);
+document.getElementById('dev2').innerHTML = dev(6,3);
+
+const info='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>';
+document.getElementById('todo').innerHTML = [
+  ['Rodapé das capas','Todas levam “Combo da Aprovação · PMMG 2027” no rodapé. Se os materiais forem vendidos separados, dá para trocar.'],
+  ['Capas individuais (depois)','Para a página de vendas fica 1 capa de Apostilas e 1 de Simulados. Quando quiser as 5 capas de cada, me passe o nome da matéria de cada apostila e crio a numeração dos simulados.']
+].map(([t,d])=>`<div class="todo-item"><span class="ic">${info}</span><div><b>${t}</b><p>${d}</p></div></div>`).join('');
+
+// destaca a miniatura da capa visível
+const ths=[...document.querySelectorAll('.th')];
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){ths.forEach(t=>t.classList.toggle('on',t.getAttribute('href')==='#'+e.target.id));}}),{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('.prod,.kit').forEach(s=>io.observe(s));
+}
+</script>
+</body>
+</html>

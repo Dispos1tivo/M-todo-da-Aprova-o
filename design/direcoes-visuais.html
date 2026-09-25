@@ -1,0 +1,606 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090B">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Direções Visuais Combo PMMG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&family=Saira+Condensed:wght@600;700;800;900&family=Saira:wght@400;600;700&display=swap">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#09090B; --bg-2:#0F0F12; --surface:#141417; --surface-2:#1B1B1F; --surface-3:#26262B;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    --text:#FAFAFA; --text-2:#D4D4D8; --text-3:#A1A1AA; --text-4:#71717A;
+    --y-50:#FFF8DB; --y-200:#FFE58A; --y-300:#FFD43B; --y-500:#F6C111; --y-600:#D9A406; --y-700:#A87C03;
+    --y-a10:rgba(246,193,17,.10); --y-a20:rgba(246,193,17,.20); --y-a30:rgba(246,193,17,.32);
+    --success:#3DD68C; --danger:#E05555;
+    --grad-ouro:linear-gradient(120deg,#F6C111 0%,#FFD43B 45%,#FFF1B8 100%);
+    --grad-metal:linear-gradient(135deg,#F4F4F5 0%,#E4E4E7 45%,#A1A1AA 100%);
+    --grad-brasa:linear-gradient(120deg,#A87C03 0%,#F6C111 50%,#FFE58A 100%);
+    --f-display:"Saira Condensed","Arial Narrow",Impact,sans-serif;
+    --f-head:"Saira","Segoe UI",system-ui,sans-serif;
+    --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+    --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--bg)}
+  body{color:var(--text);font:400 16px/1.6 var(--f-body);padding-inline:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  .wrap{max-width:1180px;margin:0 auto}
+  h1,h2,h3,h4{margin:0;text-wrap:balance}
+  p{margin:0}
+  :focus-visible{outline:2px solid var(--y-500);outline-offset:3px}
+  .eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y-300)}
+  .go{background:var(--grad-ouro);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gm{background:var(--grad-metal);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gb{background:var(--grad-brasa);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* botão aprovado */
+  .btn{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:10px;font:700 15px/1.1 var(--f-head);letter-spacing:.04em;text-transform:uppercase;padding:17px 28px;border-radius:8px;background:var(--y-500);color:#0B0B0C;position:relative;overflow:hidden;text-align:center;transition:transform .2s var(--ease),box-shadow .25s,background .25s}
+  .btn:hover{background:var(--y-300);box-shadow:0 0 28px -4px var(--y-500);transform:translateY(-2px)}
+  .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+  .btn svg{width:18px;height:18px}
+  .ping{position:relative;width:8px;height:8px;flex:none}
+  .ping i,.ping b{position:absolute;inset:0;border-radius:50%;background:var(--y-500)}
+  .ping i{animation:ping 1.2s cubic-bezier(0,0,.2,1) infinite;opacity:.75}
+  @keyframes ping{75%,100%{transform:scale(2.4);opacity:0}}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+
+  /* cabeçalho do documento */
+  header.doc{padding-block:64px 36px;display:grid;gap:18px;animation:fadeUp .8s var(--ease) both}
+  header.doc h1{font:800 clamp(44px,8vw,96px)/.92 var(--f-display);text-transform:uppercase}
+  header.doc p{color:var(--text-2);font-size:18px;max-width:64ch}
+  .fixed{display:flex;flex-wrap:wrap;gap:8px}
+  .fixed span{font:600 11px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px;border:1px solid var(--line-2);color:var(--text-3)}
+
+  /* seletor */
+  .tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(9,9,11,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-block:1px solid var(--line);margin-inline:-16px;padding:12px 16px}
+  .tabs-in{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .tab{all:unset;box-sizing:border-box;cursor:pointer;padding:12px 16px;border-radius:12px;border:1px solid var(--line);background:var(--surface);display:grid;gap:4px;transition:border-color .25s,background .25s}
+  .tab:hover{border-color:var(--line-2)}
+  .tab[aria-selected="true"]{border-color:var(--y-500);background:var(--y-a10)}
+  .tab b{font:800 20px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
+  .tab span{font:500 12px/1.3 var(--f-mono);color:var(--text-3)}
+  .tab[aria-selected="true"] span{color:var(--y-300)}
+  .tab:focus-visible{outline:2px solid var(--y-500);outline-offset:2px}
+
+  /* painel da direção */
+  .panel{padding-block:40px 24px;display:grid;gap:36px}
+  .panel[hidden]{display:none}
+  .intro{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:32px;align-items:start}
+  .intro h2{font:800 clamp(40px,6vw,64px)/.95 var(--f-display);text-transform:uppercase}
+  .intro .lead{font-size:18px;color:var(--text-2);margin-top:14px;max-width:56ch}
+  .kw{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .kw span{font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:7px 11px;border-radius:999px;background:var(--y-a10);border:1px solid var(--y-a30);color:var(--y-300)}
+  .defs{display:grid;gap:0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--surface)}
+  .defs div{display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:13px 18px;border-top:1px solid var(--line);font-size:14px;color:var(--text-2)}
+  .defs div:first-child{border-top:0}
+  .defs dt,.defs b{font:600 11px/1.6 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-4)}
+
+  .screen-label{display:flex;justify-content:space-between;gap:12px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px}
+  .screen-label b{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+  .screen-label span{font-size:13px;color:var(--text-4)}
+  .screen{border-radius:16px;border:1px solid var(--line-2);overflow:hidden;background:var(--bg);position:relative;isolation:isolate}
+  .chrome{display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);background:#0C0C0E}
+  .chrome i{width:9px;height:9px;border-radius:50%;background:var(--surface-3)}
+  .chrome span{margin-left:10px;font:500 11px/1 var(--f-mono);color:var(--text-4)}
+  .verdict{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .verdict > div{padding:20px;border-radius:14px;border:1px solid var(--line);background:var(--bg-2);display:grid;gap:8px;align-content:start}
+  .verdict h4{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase}
+  .verdict .pro h4{color:var(--success)} .verdict .con h4{color:var(--danger)} .verdict .ref h4{color:var(--y-300)}
+  .verdict ul{margin:0;padding-left:18px;color:var(--text-2);font-size:14.5px;display:grid;gap:4px}
+
+  /* ícone */
+  .ic{width:48px;height:48px;border-radius:12px;background:var(--y-a10);display:grid;place-items:center;color:var(--y-500);flex:none}
+  .ic svg{width:22px;height:22px}
+
+  /* ===== mockup do produto (compartilhado) ===== */
+  .books{position:relative;aspect-ratio:1/1;width:100%;max-width:420px;justify-self:center}
+  .book{position:absolute;width:44%;aspect-ratio:3/4.1;border-radius:6px 10px 10px 6px;background:linear-gradient(160deg,#1E1E22,#111113);border:1px solid var(--line-2);box-shadow:0 30px 50px -20px rgba(0,0,0,.8);display:grid;align-content:space-between;padding:12% 10%;overflow:hidden}
+  .book::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7%;background:var(--y-500)}
+  .book small{font:600 9px/1.2 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--y-300)}
+  .book b{font:800 clamp(16px,2.2vw,24px)/.95 var(--f-display);text-transform:uppercase;color:var(--text)}
+  .book em{font:500 10px/1.2 var(--f-mono);font-style:normal;color:var(--text-4)}
+  .book.y{background:var(--y-500);border-color:var(--y-300)}
+  .book.y::before{background:#0B0B0C}
+  .book.y small,.book.y em{color:#3D2E05} .book.y b{color:#0B0B0C}
+  .b1{left:4%;top:18%;transform:rotate(-8deg)}
+  .b2{left:30%;top:6%;z-index:2;transform:rotate(2deg)}
+  .b3{left:52%;top:22%;z-index:1;transform:rotate(9deg)}
+
+  /* ===================== DIREÇÃO A · OPERAÇÃO ===================== */
+  .A{--grid:rgba(255,255,255,.045);background-color:#08080A;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+  .A .sec{padding:48px clamp(18px,4vw,56px);position:relative}
+  .A .sec + .sec{border-top:1px solid var(--line)}
+  .A .phase{display:flex;align-items:center;gap:12px;font:600 11px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--text-4);margin-bottom:22px}
+  .A .phase b{color:var(--y-500);font-weight:700}
+  .A .phase::after{content:"";flex:1;height:1px;background:var(--line-2)}
+  .A .topbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px clamp(18px,4vw,56px);border-bottom:1px solid var(--line);font:600 11px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-4)}
+  .A .topbar .st{display:flex;gap:8px;align-items:center;color:var(--y-300)}
+  .A .hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:40px;align-items:center}
+  .A .tarja{display:inline-flex;align-items:center;gap:10px;font:700 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:8px 12px;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%);padding-right:22px}
+  .A h3.hl{font:800 clamp(36px,5.2vw,62px)/.94 var(--f-display);text-transform:uppercase;margin-top:18px}
+  .A h3.hl mark{background:none;color:var(--y-500);box-shadow:inset 0 -.14em 0 rgba(246,193,17,.22)}
+  .A .sub{color:var(--text-2);margin-top:16px;max-width:52ch;font-size:16px}
+  .A .cta-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:26px}
+  .A .cta-row .spec{font:500 12px/1.4 var(--f-mono);color:var(--text-4)}
+  .A .hud{position:relative;padding:22px}
+  .A .hud::before,.A .hud::after,.A .hud .c1,.A .hud .c2{content:"";position:absolute;width:22px;height:22px;border-color:var(--y-500);border-style:solid}
+  .A .hud::before{top:0;left:0;border-width:2px 0 0 2px}
+  .A .hud::after{top:0;right:0;border-width:2px 2px 0 0}
+  .A .hud .c1{bottom:0;left:0;border-width:0 0 2px 2px}
+  .A .hud .c2{bottom:0;right:0;border-width:0 2px 2px 0}
+  .A .hud .tag{position:absolute;top:-9px;left:34px;font:600 10px/1 var(--f-mono);letter-spacing:.12em;background:#08080A;padding:2px 8px;color:var(--y-300)}
+  .A h3.sh{font:800 clamp(30px,4vw,44px)/1 var(--f-display);text-transform:uppercase}
+  .A .track{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.15fr);gap:0;margin-top:28px;position:relative}
+  .A .node{padding:18px 16px 18px;border:1px solid var(--line-2);border-right:0;background:rgba(20,20,23,.85);display:grid;gap:8px;align-content:start}
+  .A .node .l{font:900 44px/1 var(--f-display);color:var(--text)}
+  .A .node .n{font:600 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y-300)}
+  .A .node p{font-size:13.5px;color:var(--text-3);line-height:1.5}
+  .A .node.obj{background:var(--y-500);border-color:var(--y-500);color:#0B0B0C}
+  .A .node.obj .l{color:#0B0B0C}.A .node.obj .n{color:#3D2E05}.A .node.obj p{color:#2A2004}
+  .A .loop{grid-column:1/5;margin-top:10px;height:20px;border:1.5px dashed var(--y-a30);border-top:0;position:relative}
+  .A .loop span{position:absolute;left:50%;bottom:-9px;transform:translateX(-50%);background:#08080A;padding:0 10px;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--y-300);white-space:nowrap}
+  .A .order{max-width:620px;margin:0 auto;border:1px solid var(--line-2);background:rgba(15,15,18,.92)}
+  .A .order-h{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px dashed var(--line-2);font:600 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-4)}
+  .A .hazard{height:8px;background:repeating-linear-gradient(-45deg,var(--y-500) 0 12px,#0B0B0C 12px 24px)}
+  .A .line{display:flex;align-items:baseline;gap:10px;padding:9px 18px;font:500 13.5px/1.3 var(--f-mono);color:var(--text-2)}
+  .A .line::after{content:"";order:2;flex:1;border-bottom:1px dotted var(--line-2);transform:translateY(-4px)}
+  .A .line s{order:3;color:var(--danger)}
+  .A .line.t{border-top:1px dashed var(--line-2);margin-top:6px;padding-top:14px;color:var(--text)}
+  .A .pay{padding:22px 18px 24px;border-top:1px dashed var(--line-2);display:grid;justify-items:center;gap:8px;text-align:center}
+  .A .pay .lead{font:600 13px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3)}
+  .A .pay .price{font:800 clamp(64px,10vw,96px)/.9 var(--f-display);color:var(--y-500)}
+  .A .pay .inst{font-size:14px;color:var(--text-3)}
+  .A .pay .btn{width:100%;margin-top:8px}
+
+  /* ===================== DIREÇÃO B · IMPACTO ===================== */
+  .B{background:#000}
+  .B .sec{padding:64px clamp(18px,5vw,72px);position:relative;overflow:hidden}
+  .B .hero{text-align:center;display:grid;justify-items:center;gap:20px;padding-bottom:0}
+  .B .hero::before{content:"";position:absolute;left:50%;top:40%;width:720px;height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(246,193,17,.22),transparent);z-index:-1}
+  .B .tarja{font:600 12px/1 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:var(--text-3);display:flex;gap:10px;align-items:center}
+  .B h3.hl{font:900 clamp(46px,8.4vw,112px)/.86 var(--f-display);text-transform:uppercase;letter-spacing:-.01em;max-width:13ch}
+  .B .sub{font-size:17px;color:var(--text-2);max-width:58ch}
+  .B .hero .books{max-width:520px;aspect-ratio:16/10;margin-top:16px}
+  .B .hero .book{width:34%}
+  .B .hero .b1{left:8%;top:20%}.B .hero .b2{left:33%;top:6%}.B .hero .b3{left:58%;top:22%}
+  .B .band{background:var(--y-500);color:#0B0B0C;text-align:center;padding:72px clamp(18px,6vw,96px)}
+  .B .band h3{font:900 clamp(40px,6.6vw,84px)/.9 var(--f-display);text-transform:uppercase}
+  .B .band p{font-size:18px;max-width:52ch;margin:18px auto 0;color:#2A2004;font-weight:500}
+  .B .marker{position:relative;display:inline-block}
+  .B .marker svg{position:absolute;left:-8%;top:-18%;width:116%;height:136%;overflow:visible}
+  .B .marker path{fill:none;stroke:#0B0B0C;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;animation:draw 1.4s var(--ease) .3s both}
+  @keyframes draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+  .B .farda-h{text-align:center;display:grid;gap:12px;justify-items:center}
+  .B .farda-h h3{font:900 clamp(34px,5vw,60px)/.95 var(--f-display);text-transform:uppercase}
+  .B .letters{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));margin-top:36px;border-top:1px solid var(--line-2)}
+  .B .lt{padding:22px 12px 6px;display:grid;gap:10px;align-content:start;border-right:1px solid var(--line);transition:background .35s}
+  .B .lt:last-child{border-right:0}
+  .B .lt .big{font:900 clamp(72px,11vw,150px)/.8 var(--f-display);color:transparent;-webkit-text-stroke:2px var(--surface-3);transition:color .4s,-webkit-text-stroke-color .4s}
+  .B .lt:hover .big,.B .lt.on .big{color:var(--y-500);-webkit-text-stroke-color:var(--y-500)}
+  .B .lt.last .big{color:transparent;-webkit-text-stroke-color:var(--y-500)}
+  .B .lt.last:hover .big{color:var(--y-500)}
+  .B .lt b{font:600 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y-300)}
+  .B .lt p{font-size:13.5px;color:var(--text-3);line-height:1.5}
+  .B .offer{text-align:center;display:grid;justify-items:center;gap:14px}
+  .B .offer .from{font:600 13px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-4)}
+  .B .offer .from s{color:var(--danger)}
+  .B .offer .price{font:900 clamp(96px,17vw,210px)/.8 var(--f-display);letter-spacing:-.02em}
+  .B .offer .price small{font-size:.32em;vertical-align:top;margin-right:.08em;letter-spacing:0}
+  .B .offer .inst{color:var(--text-3)}
+  .B .offer .btn{padding:21px 40px;font-size:17px;margin-top:8px}
+  .B .strip{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;font:500 12px/1.4 var(--f-mono);color:var(--text-4);max-width:680px}
+  .B .strip span s{color:var(--text-4)}
+
+  /* ===================== DIREÇÃO C · PAINEL ===================== */
+  .C{background:#09090B;overflow:hidden}
+  .C .orb{position:absolute;border-radius:50%;filter:blur(110px);z-index:-1;pointer-events:none}
+  .C .sec{padding:56px clamp(18px,4vw,56px);position:relative}
+  .C .hero{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:36px;align-items:center}
+  .C .badge{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border:1px solid var(--y-a30);background:var(--y-a10);border-radius:999px;font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--y-300)}
+  .C h3.hl{font:800 clamp(34px,4.8vw,56px)/1.02 var(--f-body);letter-spacing:-.035em;margin-top:18px}
+  .C .sub{color:var(--text-3);margin-top:16px;font-size:16.5px;max-width:52ch}
+  .C .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:26px}
+  .C .ghost{font:600 14px/1 var(--f-body);color:var(--text-2);padding:16px 18px;border-radius:8px;border:1px solid var(--line-2);background:rgba(255,255,255,.03)}
+  .C .glass{border-radius:20px;border:1px solid var(--line-2);background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(255,255,255,.015));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .C .bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .C .bx{padding:18px;display:grid;gap:10px;align-content:start}
+  .C .bx.wide{grid-column:1/-1;display:flex;gap:16px;align-items:center}
+  .C .bx .num{font:700 40px/1 var(--f-mono);letter-spacing:-.04em}
+  .C .bx .cap{font-size:13px;color:var(--text-3);line-height:1.4}
+  .C .meter{height:8px;border-radius:999px;background:var(--surface-3);overflow:hidden;flex:1}
+  .C .meter i{display:block;height:100%;width:72%;border-radius:inherit;background:var(--grad-ouro);animation:grow 1.6s var(--ease) both}
+  @keyframes grow{from{width:0}}
+  .C .ring-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+  .C h3.sh{font:800 clamp(30px,4vw,44px)/1.05 var(--f-body);letter-spacing:-.03em}
+  .C .steps{display:grid;gap:10px;margin-top:22px}
+  .C .step{display:flex;gap:14px;align-items:flex-start;padding:14px 16px}
+  .C .step b{font:700 15px/1.3 var(--f-head)}
+  .C .step p{font-size:13.5px;color:var(--text-3);line-height:1.45;margin-top:2px}
+  .C .step .k{font:900 24px/1 var(--f-display);color:var(--y-500);width:28px;flex:none;text-align:center}
+  .C .ring{width:100%;max-width:380px;justify-self:center}
+  .C .ring text{font-family:var(--f-display);font-weight:900}
+  .C .plan{max-width:520px;margin:0 auto;padding:30px;border-radius:24px;border:1px solid var(--y-a30);background:linear-gradient(160deg,rgba(246,193,17,.12),rgba(20,20,23,.9) 42%,#0F0F12);box-shadow:0 30px 70px -24px rgba(246,193,17,.3);display:grid;gap:18px}
+  .C .plan .top{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}
+  .C .plan h4{font:800 30px/1 var(--f-display);text-transform:uppercase}
+  .C .pill{font:600 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:var(--y-a10);border:1px solid var(--y-a30);color:var(--y-300)}
+  .C .plan .price{font:700 64px/1 var(--f-mono);letter-spacing:-.05em}
+  .C .plan .price small{font-size:20px;letter-spacing:0;color:var(--text-3)}
+  .C .plan .inst{font-size:14px;color:var(--text-3);margin-top:4px}
+  .C .plan .from{font-size:14px;color:var(--text-4);text-decoration:line-through}
+  .C .chk{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+  .C .chk li{display:flex;gap:10px;align-items:center;font-size:14.5px;color:var(--text-2)}
+  .C .chk .t{width:24px;height:24px;border-radius:50%;background:var(--y-a20);color:var(--y-500);display:grid;place-items:center;flex:none}
+  .C .chk .t svg{width:13px;height:13px}
+  .C .plan .btn{width:100%}
+
+  /* entrada nas telas */
+  .screen .rv{animation:fadeUp .8s var(--ease) both}
+  .screen .rv.d2{animation-delay:.1s}.screen .rv.d3{animation-delay:.2s}
+
+  /* comparação */
+  .cmp{border-top:1px solid var(--line);padding-block:56px;display:grid;gap:24px}
+  .cmp h2{font:800 clamp(34px,5vw,52px)/1 var(--f-display);text-transform:uppercase}
+  .tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+  table{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+  th,td{padding:14px 18px;text-align:left;vertical-align:top;border-top:1px solid var(--line)}
+  thead th{border-top:0;font:800 18px/1 var(--f-display);text-transform:uppercase;background:var(--surface)}
+  tbody th{font:600 11px/1.5 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-4);width:170px}
+  td{color:var(--text-2)}
+  .rec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;padding:24px;border-radius:16px;border:1px solid var(--y-a30);background:linear-gradient(135deg,rgba(246,193,17,.10),var(--surface) 60%)}
+  .rec h3{font:700 20px/1.25 var(--f-head)}
+  .rec p{color:var(--text-2);margin-top:6px;max-width:70ch}
+  footer{border-top:1px solid var(--line);padding-block:32px 56px;font:500 12px/1.6 var(--f-mono);color:var(--text-4)}
+
+  @media (max-width:860px){
+    .intro,.A .hero,.C .hero,.C .ring-wrap{grid-template-columns:1fr}
+    .A .track{grid-template-columns:1fr 1fr}
+    .A .node{border-right:1px solid var(--line-2);border-bottom:0}
+    .A .node.obj{grid-column:1/-1}
+    .A .loop{display:none}
+    .B .letters{grid-template-columns:repeat(5,minmax(0,1fr))}
+    .B .lt{padding-inline:6px}
+    .B .lt p{display:none}
+  }
+  @media (max-width:560px){
+    .tabs-in{grid-template-columns:1fr 1fr 1fr;gap:6px}
+    .tab{padding:10px}
+    .tab span{display:none}
+    .tab b{font-size:16px}
+    .defs div{grid-template-columns:1fr;gap:2px}
+    .C .bento{grid-template-columns:1fr 1fr}
+    .rec{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="doc">
+    <span class="eyebrow">Combo da Aprovação PMMG 2027 · página de vendas</span>
+    <h1>Três <span class="go">direções</span> visuais</h1>
+    <p>As três seguem a identidade aprovada e a cópia do wireframe. Muda o jeito de montar a página: composição, ritmo entre blocos, formato dos cards e onde entra o impacto. Cada direção mostra o mesmo trecho: <b style="color:var(--text)">hero (bloco 01)</b>, <b style="color:var(--text)">Método FARDA (08)</b> e <b style="color:var(--text)">oferta (14)</b>.</p>
+    <div class="fixed"><span>Fixo nas 3: fundo escuro</span><span>Amarelo #F6C111</span><span>Saira Condensed · Inter · Mono</span><span>Botão 8px</span><span>Ícones de linha</span></div>
+  </header>
+
+  <div class="tabs" role="tablist" aria-label="Direções visuais">
+    <div class="tabs-in">
+      <button class="tab" role="tab" id="t-a" aria-controls="p-a" aria-selected="true"><b>A · Operação</b><span>tática, briefing militar</span></button>
+      <button class="tab" role="tab" id="t-b" aria-controls="p-b" aria-selected="false"><b>B · Impacto</b><span>cartaz, tipografia gigante</span></button>
+      <button class="tab" role="tab" id="t-c" aria-controls="p-c" aria-selected="false"><b>C · Painel</b><span>vidro, blocos, dados</span></button>
+    </div>
+  </div>
+
+  <!-- ============ A ============ -->
+  <section class="panel" id="p-a" role="tabpanel" aria-labelledby="t-a">
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Direção A</span>
+        <h2>Operação <span class="go">Farda</span></h2>
+        <p class="lead">A página como um briefing de missão. Grade de fundo visível, molduras com cantos de mira, etiquetas em fonte mono e a jornada dividida em fases. Fala a língua de quem quer ser policial.</p>
+        <div class="kw"><span>Disciplina</span><span>Precisão</span><span>Missão</span><span>Hierarquia</span></div>
+      </div>
+      <dl class="defs" style="margin:0">
+        <div><dt>Ritmo</dt><dd style="margin:0">Blocos agrupados nas 4 fases do wireframe: Atenção, Problema, Mecanismo, Fechamento</dd></div>
+        <div><dt>Cards</dt><dd style="margin:0">Cantos retos, borda fina, cantoneiras amarelas nos destaques</dd></div>
+        <div><dt>Destaque</dt><dd style="margin:0">Amarelo sólido em palavras-chave; faixa zebrada só na oferta</dd></div>
+        <div><dt>Movimento</dt><dd style="margin:0">Subida ao aparecer, pulso de status, contagem nos números</dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Hero · bloco 01</b><span>desktop</span></div>
+      <div class="screen A">
+        <div class="chrome"><i></i><i></i><i></i><span>combopmmg.com.br</span></div>
+        <div class="topbar"><span>Método da Aprovação</span><span class="st"><span class="ping"><i></i><b></b></span>Status: edital previsto 2027</span></div>
+        <div class="sec">
+          <div class="phase"><b>Fase 1</b> Atenção</div>
+          <div class="hero">
+            <div class="rv">
+              <span class="tarja">Edital previsto 2027 · PMMG · Soldado</span>
+              <h3 class="hl">Tudo que você precisa para <mark>passar na PMMG 2027</mark>, do edital ao gabarito comentado.</h3>
+              <p class="sub">5 apostilas do edital completo, 5 simulados no padrão CRS com gabarito comentado e o passo a passo para saber exatamente o que estudar todo dia.</p>
+              <div class="cta-row"><button class="btn">Quero estudar com direção</button><span class="spec">R$ 47 · Pix ou 11x<br>Garantia de 14 dias</span></div>
+            </div>
+            <div class="hud rv d2"><span class="c1"></span><span class="c2"></span><span class="tag">KIT · 5 + 5 + 5 BÔNUS</span>
+              <div class="books"><div class="book b1"><small>Apostila 01</small><b>Língua Portuguesa</b><em>Edital completo</em></div><div class="book y b2"><small>Combo</small><b>Aprovação PMMG 2027</b><em>5 apostilas · 5 simulados</em></div><div class="book b3"><small>Simulado</small><b>Padrão CRS</b><em>Gabarito comentado</em></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Método FARDA · bloco 08</b><span>ciclo semanal + objetivo</span></div>
+      <div class="screen A">
+        <div class="sec">
+          <div class="phase"><b>Fase 3</b> Mecanismo</div>
+          <h3 class="sh">Por que o Combo funciona: o <span style="color:var(--y-500)">Método FARDA</span></h3>
+          <p class="sub">Cada letra é uma etapa do ciclo que leva à aprovação.</p>
+          <div class="track">
+            <div class="node"><span class="n">Etapa 1</span><span class="l">F</span><b>Foco</b><p>O edital verticalizado e o cronograma acabam com a dispersão.</p></div>
+            <div class="node"><span class="n">Etapa 2</span><span class="l">A</span><b>Aplicação</b><p>Teoria certa, com exemplos no contexto policial.</p></div>
+            <div class="node"><span class="n">Etapa 3</span><span class="l">R</span><b>Revisão</b><p>Revisar no tempo certo para não esquecer.</p></div>
+            <div class="node"><span class="n">Etapa 4</span><span class="l">D</span><b>Diagnóstico</b><p>Simulados no padrão CRS com gabarito comentado.</p></div>
+            <div class="node obj"><span class="n">Objetivo</span><span class="l">A</span><b>Aprovação</b><p>O resultado de repetir o ciclo até o dia da prova.</p></div>
+            <div class="loop"><span>↺ volta ao F toda semana</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Oferta · bloco 14</b><span>formato “ordem de compra”</span></div>
+      <div class="screen A">
+        <div class="sec">
+          <div class="phase"><b>Fase 4</b> Fechamento</div>
+          <div class="order">
+            <div class="hazard"></div>
+            <div class="order-h"><span>Ordem · Combo PMMG 2027</span><span>7 itens</span></div>
+            <div style="padding-block:10px">
+              <div class="line">5 Apostilas Completas<s>R$ 57,00</s></div>
+              <div class="line">5 Simulados CRS comentados<s>R$ 47,00</s></div>
+              <div class="line">Bônus 1 · Edital Verticalizado<s>R$ 37,00</s></div>
+              <div class="line">Bônus 2 · Planner de 30 dias<s>R$ 17,00</s></div>
+              <div class="line">Bônus 3 · Cronograma de Estudos<s>R$ 17,00</s></div>
+              <div class="line">Bônus 4 · Prompts da Aprovação<s>R$ 9,00</s></div>
+              <div class="line">Bônus 5 · Plano de treino TAF<s>R$ 37,00</s></div>
+              <div class="line t">Valor real do pacote<s>R$ 221,00</s></div>
+            </div>
+            <div class="pay"><span class="lead">Hoje você leva tudo por</span><span class="price">R$ 47,00</span><span class="inst">à vista ou 6x de R$ 9,00 no cartão</span><button class="btn">Quero garantir meu combo por R$ 47</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="pro"><h4>Onde brilha</h4><ul><li>Tem a cara do público: farda, missão, disciplina</li><li>O FARDA vira uma linha de etapas fácil de entender</li><li>Oferta em lista lembra uma nota fiscal e passa confiança</li></ul></div>
+      <div class="con"><h4>Cuidado</h4><ul><li>Se exagerar nos detalhes militares, fica caricato</li><li>Mais linhas e molduras: pede disciplina na montagem</li></ul></div>
+      <div class="ref"><h4>Referência mais próxima</h4><ul><li>Caveira (tom policial e amarelo) com a grade de fundo da Monster</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ============ B ============ -->
+  <section class="panel" id="p-b" role="tabpanel" aria-labelledby="t-b" hidden>
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Direção B</span>
+        <h2>Impacto <span class="go">total</span></h2>
+        <p class="lead">A página como um cartaz. Títulos enormes, muito espaço preto e faixas amarelas inteiras nos momentos de virada. Quem entra sente a urgência antes de ler.</p>
+        <div class="kw"><span>Urgência</span><span>Emoção</span><span>Contraste</span><span>Coragem</span></div>
+      </div>
+      <dl class="defs" style="margin:0">
+        <div><dt>Ritmo</dt><dd style="margin:0">Alterna preto puro e faixas amarelas de ponta a ponta (blocos 03 e 17)</dd></div>
+        <div><dt>Cards</dt><dd style="margin:0">Quase nenhum. A tipografia e as linhas divisórias organizam tudo</dd></div>
+        <div><dt>Destaque</dt><dd style="margin:0">Gradiente Ouro nas palavras e marcador em círculo nas viradas</dd></div>
+        <div><dt>Movimento</dt><dd style="margin:0">Marcador que se desenha, letras do FARDA que acendem, bounce no botão</dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Hero · bloco 01</b><span>+ faixa de virada (bloco 03)</span></div>
+      <div class="screen B">
+        <div class="chrome"><i></i><i></i><i></i><span>combopmmg.com.br</span></div>
+        <div class="sec hero">
+          <span class="tarja rv"><span class="ping"><i></i><b></b></span>Edital previsto para 2027 · PMMG · Soldado</span>
+          <h3 class="hl rv d2">Passe na <span class="go">PMMG 2027</span></h3>
+          <p class="sub rv d3">Tudo o que você precisa, do edital ao gabarito comentado: 5 apostilas, 5 simulados no padrão CRS e o passo a passo do que estudar todo dia.</p>
+          <button class="btn rv d3">Quero estudar com direção</button>
+          <div class="books"><div class="book b1"><small>Apostila 01</small><b>Língua Portuguesa</b><em>Edital completo</em></div><div class="book y b2"><small>Combo</small><b>Aprovação PMMG 2027</b><em>5 apostilas · 5 simulados</em></div><div class="book b3"><small>Simulado</small><b>Padrão CRS</b><em>Gabarito comentado</em></div></div>
+        </div>
+        <div class="band">
+          <h3>O problema quase nunca é <span class="marker">você<svg viewBox="0 0 200 80" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M178 14C140 2 60 4 22 20 -4 32 6 62 50 70c46 8 118 4 142-18 16-16-4-34-40-40"/></svg></span>.</h3>
+          <p>A maioria reprova estudando muito, só que no escuro: sem saber o que priorizar e sem medir se está evoluindo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Método FARDA · bloco 08</b><span>passe o mouse nas letras</span></div>
+      <div class="screen B">
+        <div class="sec">
+          <div class="farda-h"><span class="eyebrow">Por que funciona</span><h3>O Método <span class="go">FARDA</span></h3></div>
+          <div class="letters" id="letters">
+            <div class="lt"><span class="big">F</span><b>Foco</b><p>Saber exatamente o que estudar.</p></div>
+            <div class="lt"><span class="big">A</span><b>Aplicação</b><p>Teoria no contexto policial.</p></div>
+            <div class="lt"><span class="big">R</span><b>Revisão</b><p>Revisar no tempo certo.</p></div>
+            <div class="lt"><span class="big">D</span><b>Diagnóstico</b><p>Simulados no padrão CRS.</p></div>
+            <div class="lt last"><span class="big">A</span><b>Aprovação</b><p>O resultado do ciclo.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Oferta · bloco 14</b><span>preço como manchete</span></div>
+      <div class="screen B">
+        <div class="sec offer">
+          <span class="eyebrow">Condição exclusiva</span>
+          <span class="from">Valor real do pacote <s>R$ 221,00</s></span>
+          <span class="price gb"><small>R$</small>47</span>
+          <span class="inst">à vista ou 6x de R$ 9,00 no cartão</span>
+          <div class="strip"><span>5 Apostilas</span><span>5 Simulados CRS</span><span>Edital Verticalizado</span><span>Planner 30 dias</span><span>Cronograma</span><span>Prompts</span><span>Treino TAF</span></div>
+          <button class="btn">Quero garantir meu combo por R$ 47</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="pro"><h4>Onde brilha</h4><ul><li>Maior impacto no primeiro segundo, ótimo para tráfego pago</li><li>Faixas amarelas quebram a rolagem e prendem a atenção</li><li>Preço gigante deixa a oferta impossível de ignorar</li></ul></div>
+      <div class="con"><h4>Cuidado</h4><ul><li>Títulos enormes exigem cópia curta; o título do hero foi encurtado</li><li>Blocos longos (bônus, comparativo) pedem mais adaptação</li></ul></div>
+      <div class="ref"><h4>Referência mais próxima</h4><ul><li>Caveira (títulos grandes, marcador em círculo) com os gradientes da Monster</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ============ C ============ -->
+  <section class="panel" id="p-c" role="tabpanel" aria-labelledby="t-c" hidden>
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Direção C</span>
+        <h2>Painel de <span class="go">evolução</span></h2>
+        <p class="lead">O Combo apresentado como um sistema. Cartões de vidro, grade de blocos com números e barras de progresso, brilhos difusos no fundo. Passa a ideia de “estudo medido e organizado”.</p>
+        <div class="kw"><span>Controle</span><span>Clareza</span><span>Progresso</span><span>Moderno</span></div>
+      </div>
+      <dl class="defs" style="margin:0">
+        <div><dt>Ritmo</dt><dd style="margin:0">Fundo contínuo com brilhos que acompanham a rolagem, sem faixas duras</dd></div>
+        <div><dt>Cards</dt><dd style="margin:0">Vidro translúcido, cantos de 16–24px, grade de blocos de tamanhos variados</dd></div>
+        <div><dt>Destaque</dt><dd style="margin:0">Números em mono com gradiente, barras de progresso e anel do FARDA</dd></div>
+        <div><dt>Movimento</dt><dd style="margin:0">Barras que enchem, contagem nos números, ponto girando no anel</dd></div>
+      </dl>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Hero · bloco 01</b><span>desktop</span></div>
+      <div class="screen C">
+        <div class="chrome"><i></i><i></i><i></i><span>combopmmg.com.br</span></div>
+        <div class="sec">
+          <div class="orb" style="width:460px;height:460px;top:-160px;right:-60px;background:rgba(246,193,17,.18)"></div>
+          <div class="orb" style="width:380px;height:380px;bottom:-200px;left:-120px;background:rgba(246,193,17,.07)"></div>
+          <div class="hero">
+            <div class="rv">
+              <span class="badge"><span class="ping"><i></i><b></b></span>Edital previsto 2027 · Soldado</span>
+              <h3 class="hl">Tudo para passar na <span class="go">PMMG 2027</span>, do edital ao gabarito comentado.</h3>
+              <p class="sub">5 apostilas do edital completo, 5 simulados no padrão CRS e o passo a passo para saber exatamente o que estudar todo dia.</p>
+              <div class="cta-row"><button class="btn">Quero estudar com direção</button><span class="ghost">Ver o que vem no combo</span></div>
+            </div>
+            <div class="bento rv d2">
+              <div class="glass bx"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div><span class="num gm">5</span><span class="cap">apostilas com o edital completo</span></div>
+              <div class="glass bx"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span class="num go">5</span><span class="cap">simulados no padrão CRS</span></div>
+              <div class="glass bx wide"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></svg></div><div style="flex:1;display:grid;gap:8px"><span class="cap" style="display:flex;justify-content:space-between"><span>Planner de 30 dias</span><b style="color:var(--text);font-family:var(--f-mono)">dia 22/30</b></span><div class="meter"><i></i></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Método FARDA · bloco 08</b><span>anel do ciclo semanal</span></div>
+      <div class="screen C">
+        <div class="sec">
+          <div class="orb" style="width:420px;height:420px;top:10%;left:20%;background:rgba(246,193,17,.09)"></div>
+          <div class="ring-wrap">
+            <div>
+              <span class="eyebrow">Por que funciona</span>
+              <h3 class="sh" style="margin-top:12px">O Método <span class="go">FARDA</span></h3>
+              <div class="steps">
+                <div class="glass step"><span class="k">F</span><div><b>Foco</b><p>Edital verticalizado e cronograma acabam com a dispersão.</p></div></div>
+                <div class="glass step"><span class="k">A</span><div><b>Aplicação</b><p>Teoria com exemplos no contexto policial.</p></div></div>
+                <div class="glass step"><span class="k">R</span><div><b>Revisão</b><p>Revisar no tempo certo para não esquecer.</p></div></div>
+                <div class="glass step"><span class="k">D</span><div><b>Diagnóstico</b><p>Simulados CRS com gabarito comentado.</p></div></div>
+              </div>
+            </div>
+            <svg class="ring" viewBox="0 0 320 320" role="img" aria-label="Ciclo F, A, R, D levando à Aprovação">
+              <circle cx="160" cy="160" r="118" fill="none" stroke="#26262B" stroke-width="2"/>
+              <circle cx="160" cy="160" r="118" fill="none" stroke="#F6C111" stroke-width="2" stroke-dasharray="6 10" opacity=".5"/>
+              <circle r="6" fill="#F6C111"><animateMotion dur="6s" repeatCount="indefinite" path="M160 42a118 118 0 1 1 0 236a118 118 0 1 1 0-236"/></circle>
+              <g>
+                <circle cx="160" cy="42" r="28" fill="#141417" stroke="rgba(255,255,255,.14)"/><text x="160" y="53" text-anchor="middle" font-size="30" fill="#FAFAFA">F</text>
+                <circle cx="278" cy="160" r="28" fill="#141417" stroke="rgba(255,255,255,.14)"/><text x="278" y="171" text-anchor="middle" font-size="30" fill="#FAFAFA">A</text>
+                <circle cx="160" cy="278" r="28" fill="#141417" stroke="rgba(255,255,255,.14)"/><text x="160" y="289" text-anchor="middle" font-size="30" fill="#FAFAFA">R</text>
+                <circle cx="42" cy="160" r="28" fill="#141417" stroke="rgba(255,255,255,.14)"/><text x="42" y="171" text-anchor="middle" font-size="30" fill="#FAFAFA">D</text>
+              </g>
+              <circle cx="160" cy="160" r="62" fill="rgba(246,193,17,.12)" stroke="#F6C111" stroke-width="1.5"/>
+              <text x="160" y="170" text-anchor="middle" font-size="44" fill="#F6C111">A</text>
+              <text x="160" y="192" text-anchor="middle" font-size="11" fill="#D4D4D8" style="font-family:var(--f-mono);font-weight:600;letter-spacing:.14em">APROVAÇÃO</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="screen-label"><b>Oferta · bloco 14</b><span>card de plano com brilho</span></div>
+      <div class="screen C">
+        <div class="sec">
+          <div class="orb" style="width:520px;height:420px;top:10%;left:50%;transform:translateX(-50%);background:rgba(246,193,17,.12)"></div>
+          <div class="plan">
+            <div class="top"><h4>Combo <span class="go">Completo</span></h4><span class="pill">Condição exclusiva</span></div>
+            <div><span class="from">Valor real R$ 221,00</span><div class="price gb">R$ 47<small>,00</small></div><div class="inst">à vista ou 6x de R$ 9,00 no cartão</div></div>
+            <ul class="chk" id="chkC"></ul>
+            <button class="btn">Quero garantir meu combo por R$ 47</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="pro"><h4>Onde brilha</h4><ul><li>Visual mais moderno e “premium” das três</li><li>Os números e barras deixam o produto tangível</li><li>Encaixa bem os bônus e o comparativo em cartões</li></ul></div>
+      <div class="con"><h4>Cuidado</h4><ul><li>Menos personalidade policial; pode parecer app de tecnologia</li><li>Efeito de vidro pesa em celular fraco (dá para simplificar)</li></ul></div>
+      <div class="ref"><h4>Referência mais próxima</h4><ul><li>Monster (brilhos, cards e gradientes) com os ícones do Gabaritando</li></ul></div>
+    </div>
+  </section>
+
+  <section class="cmp">
+    <span class="eyebrow">Lado a lado</span>
+    <h2>Comparação</h2>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th></th><th>A · Operação</th><th>B · Impacto</th><th>C · Painel</th></tr></thead>
+        <tbody>
+          <tr><th>Sensação</th><td>Missão, disciplina</td><td>Urgência, emoção</td><td>Controle, organização</td></tr>
+          <tr><th>Hero</th><td>Duas colunas, mockup em moldura de mira</td><td>Centralizado, título gigante</td><td>Duas colunas, blocos com números</td></tr>
+          <tr><th>FARDA</th><td>Linha de etapas + objetivo</td><td>Letras gigantes que acendem</td><td>Anel do ciclo com Aprovação no centro</td></tr>
+          <tr><th>Oferta</th><td>Ordem de compra com lista</td><td>Preço como manchete</td><td>Card de plano com brilho</td></tr>
+          <tr><th>Cantos</th><td>Retos (0–4px)</td><td>Quase sem cards</td><td>Arredondados (16–24px)</td></tr>
+          <tr><th>Celular</th><td>Bom</td><td>Muito bom (pouca coisa na tela)</td><td>Bom, com vidro simplificado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rec">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+      <div><h3>Minha recomendação: A · Operação, com as faixas amarelas da B</h3><p>A direção A é a única que conversa diretamente com quem quer vestir a farda, e o FARDA em linha de etapas fica claro em qualquer tela. Pegar as faixas amarelas da B para os blocos de virada (03 e 17) dá o impacto que falta à A. Também dá para escolher uma direção pura ou misturar peças diferentes.</p></div>
+    </div>
+  </section>
+
+  <footer>Direções visuais · Combo da Aprovação PMMG 2027 · baseado no Manual de Identidade v1 e no wireframe de 17 blocos</footer>
+</main>
+
+<script>
+  const tabs=[...document.querySelectorAll('.tab')];
+  function select(t,focus){
+    tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});
+    if(focus)t.focus();
+    try{localStorage.setItem('dir-tab',t.id)}catch(e){}
+  }
+  tabs.forEach((t,i)=>{
+    t.addEventListener('click',()=>{select(t);document.querySelector('.tabs').scrollIntoView({block:'start',behavior:'smooth'})});
+    t.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){const n=tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length];select(n,true);}});
+  });
+  try{const s=localStorage.getItem('dir-tab');if(s&&document.getElementById(s))select(document.getElementById(s))}catch(e){}
+
+  // FARDA B: letras acendem em sequência
+  const lts=[...document.querySelectorAll('#letters .lt')];let k=0;
+  setInterval(()=>{lts.forEach((l,i)=>l.classList.toggle('on',i===k%4));k++;},1100);
+
+  const tick='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>';
+  document.getElementById('chkC').innerHTML=['5 Apostilas Completas do edital','5 Simulados CRS com gabarito comentado','Edital Verticalizado + Planner de 30 dias','Cronograma, Prompts e Plano de treino TAF','Garantia incondicional de 14 dias'].map(t=>`<li><span class="t">${tick}</span>${t}</li>`).join('');
+</script>
+</body>
+</html>

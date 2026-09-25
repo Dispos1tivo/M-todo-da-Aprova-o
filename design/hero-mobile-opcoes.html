@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09090B">
+<style>html,body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Hero Mobile Opções</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Saira+Condensed:wght@700;800;900&family=Saira:wght@600;700&display=swap">
+<style>
+  :root{
+    color-scheme:dark;
+    --bg:#09090B; --bg-2:#0F0F12; --surface:#141417; --surface-2:#1B1B1F; --surface-3:#26262B;
+    --line:rgba(255,255,255,.08); --line-2:rgba(255,255,255,.14);
+    --text:#FAFAFA; --text-2:#D4D4D8; --text-3:#A1A1AA; --text-4:#71717A;
+    --y-300:#FFD43B; --y-500:#F6C111; --y-600:#D9A406; --y-900:#3D2E05;
+    --y-a10:rgba(246,193,17,.10); --y-a20:rgba(246,193,17,.20); --y-a30:rgba(246,193,17,.32);
+    --success:#3DD68C; --danger:#E05555;
+    --f-display:"Saira Condensed","Arial Narrow",Impact,sans-serif;
+    --f-head:"Saira","Segoe UI",system-ui,sans-serif;
+    --f-body:"Inter","Segoe UI",system-ui,sans-serif;
+    --f-mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --bgk:#0E0E10; --fg:#FAFAFA; --ac:#F6C111; --hl:#F6C111;
+  }
+  *{box-sizing:border-box}
+  html,body{background:var(--bg)}
+  body{color:var(--text);font:400 16px/1.6 var(--f-body);padding-inline:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  h1,h2,h3{margin:0;text-wrap:balance}
+  p{margin:0}
+  .wrap{max-width:1180px;margin:0 auto}
+  .eyebrow{font:600 12px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--y-300)}
+  header.doc{padding-block:56px 32px;display:grid;gap:14px}
+  header.doc h1{font:800 clamp(40px,7vw,80px)/.92 var(--f-display);text-transform:uppercase}
+  header.doc h1 span{color:var(--y-500)}
+  header.doc p{font-size:18px;color:var(--text-2);max-width:64ch}
+
+  .opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:40px 28px;padding-bottom:40px}
+  .opt{display:grid;gap:16px;justify-items:center;align-content:start}
+  .opt-h{width:100%;max-width:380px;display:grid;gap:6px}
+  .opt-h .n{font:700 11px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:6px 9px;border-radius:4px;justify-self:start}
+  .opt-h h2{font:800 30px/1 var(--f-display);text-transform:uppercase}
+  .opt-h p{font-size:14.5px;color:var(--text-3)}
+  .pc{width:100%;max-width:380px;display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13px}
+  .pc div{padding:12px 14px;border-radius:10px;background:var(--surface);border:1px solid var(--line)}
+  .pc b{display:block;font:600 10.5px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+  .pc .p b{color:var(--success)} .pc .c b{color:var(--danger)}
+  .pc ul{margin:0;padding-left:16px;color:var(--text-2);display:grid;gap:3px}
+
+  /* aparelho */
+  .phone{width:min(360px,100%);border-radius:42px;border:10px solid #1B1B1F;background:#09090B;box-shadow:0 40px 80px -30px #000,0 0 0 1px #2A2A30;overflow:hidden;position:relative}
+  .phone .notch{position:absolute;top:8px;left:50%;transform:translateX(-50%);width:92px;height:22px;border-radius:12px;background:#000;z-index:5}
+  .screen{height:720px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:36px 36px}
+  .screen::-webkit-scrollbar{display:none}
+  .m-top{display:flex;justify-content:center;padding:40px 0 12px;border-bottom:1px solid var(--line)}
+  .m-top svg{width:140px;height:auto}
+  .m-hero{padding:28px 16px 36px;text-align:center;display:grid;justify-items:center;position:relative;overflow:hidden}
+  .m-hero::before{content:"";position:absolute;width:360px;height:360px;top:-120px;right:-140px;border-radius:50%;background:rgba(246,193,17,.14);filter:blur(90px);z-index:0}
+  .m-hero > *{position:relative;z-index:1}
+  .tarja{display:inline-block;font:700 9.5px/1.35 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:7px 20px 7px 11px;clip-path:polygon(0 0,100% 0,calc(100% - 10px) 100%,0 100%)}
+  .m-hero h3{font:800 31px/.95 var(--f-display);text-transform:uppercase;margin-top:16px}
+  .m-hero h3 mark{background:none;color:var(--y-500)}
+  .m-hero .lead{margin-top:14px;font-size:14.5px;line-height:1.55;color:var(--text-2)}
+  .btn{display:flex;align-items:center;justify-content:center;width:100%;margin-top:20px;font:700 14px/1.2 var(--f-head);letter-spacing:.04em;text-transform:uppercase;padding:16px 18px;border-radius:8px;background:var(--y-500);color:#0B0B0C;position:relative;overflow:hidden}
+  .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);transform:translateX(-120%);animation:shine 3.2s ease-in-out infinite}
+  @keyframes shine{0%,55%{transform:translateX(-120%)}85%,100%{transform:translateX(120%)}}
+  .m-img{width:100%;margin-top:28px;position:relative}
+  .m-img::before{content:"";position:absolute;left:5%;right:5%;bottom:0;height:45%;background:radial-gradient(closest-side,rgba(246,193,17,.22),transparent);z-index:-1}
+
+  /* ===== capas dos produtos ===== */
+  .e-ac{fill:var(--ac)} .e-fg{fill:var(--fg)} .e-hl{fill:var(--hl)} .e-bg{fill:var(--bgk)}
+  .e-ring{fill:none;stroke:var(--ac)} .e-ko{stroke:var(--bgk);paint-order:stroke;stroke-linejoin:round}
+  .e-chev{fill:none;stroke:var(--ac)} .e-sh{stroke:var(--ac)}
+  .logo-txt{font-family:var(--f-display);text-transform:uppercase}
+  .cv{container-type:inline-size;width:100%;aspect-ratio:1/1.414;position:relative}
+  .cv-in{position:absolute;inset:0;overflow:hidden;background:
+      radial-gradient(circle at 50% 18%,rgba(246,193,17,.13),transparent 55%),
+      linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/6cqw 6cqw,
+      linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/6cqw 6cqw,
+      var(--bgk);
+    border-radius:.6cqw 1.6cqw 1.6cqw .6cqw;
+    display:grid;grid-template-rows:auto auto auto auto minmax(0,1fr) auto;justify-items:center;text-align:center;
+    padding:6cqw 7cqw 5cqw 11cqw;color:var(--text)}
+  .cv-in::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4cqw;background:var(--y-500)}
+  .cv-in::after{content:"";position:absolute;inset:3.2cqw 3.2cqw 3.2cqw 7.2cqw;border:.25cqw solid var(--y-a30);pointer-events:none}
+  .cv .tick{position:absolute;width:4cqw;height:4cqw;border:0 solid var(--y-500)}
+  .cv .t1{top:3.2cqw;left:7.2cqw;border-width:.6cqw 0 0 .6cqw}.cv .t2{top:3.2cqw;right:3.2cqw;border-width:.6cqw .6cqw 0 0}
+  .cv .t3{bottom:3.2cqw;left:7.2cqw;border-width:0 0 .6cqw .6cqw}.cv .t4{bottom:3.2cqw;right:3.2cqw;border-width:0 .6cqw .6cqw 0}
+  .cv .emb{width:34cqw;position:relative;z-index:1}
+  .cv .emb svg{display:block;width:100%;height:auto}
+  .cv .tag{margin-top:2.4cqw;font:700 2.5cqw/1 var(--f-mono);letter-spacing:.2em;text-transform:uppercase;color:#0B0B0C;background:var(--y-500);padding:1.1cqw 2cqw;position:relative;z-index:1}
+  .cv .ttl{margin-top:3cqw;font:900 var(--ts,10.5cqw)/.9 var(--f-display);text-transform:uppercase;letter-spacing:.005em;position:relative;z-index:1}
+  .cv .ttl .y{color:var(--y-500)}
+  .cv .ttl .big{display:block;font-size:1.55em;color:var(--y-500);line-height:.9}
+  .cv .sub{margin-top:2.4cqw;font:500 3.3cqw/1.3 var(--f-body);color:var(--text-2);position:relative;z-index:1;max-width:66cqw}
+  .cv .art{width:100%;min-height:0;display:grid;place-items:center;padding-block:2.6cqw;position:relative;z-index:1}
+  .cv .art svg{width:100%;height:100%;max-height:100%;display:block}
+  .cv .cvf{display:flex;justify-content:space-between;align-items:center;width:100%;font:600 2.2cqw/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--text-4);border-top:.25cqw solid var(--line-2);padding-top:2.2cqw;position:relative;z-index:1}
+  .cv .cvf b{color:var(--y-300);font-weight:700}
+  .s-y{stroke:var(--y-500)} .f-y{fill:var(--y-500)} .f-ya{fill:rgba(246,193,17,.18)} .s-ya{stroke:rgba(246,193,17,.35)}
+  .s-g{stroke:#3A3A40} .f-t{fill:var(--text-3)}
+  .cv .lst{list-style:none;margin:0;padding:0;display:grid;gap:1.9cqw;text-align:left;font:600 3cqw/1.2 var(--f-body);color:var(--text-2)}
+  .cv .lst li{display:flex;gap:1.6cqw;align-items:center}
+  .cv .lst i{width:3.6cqw;height:3.6cqw;border-radius:.8cqw;background:var(--y-500);flex:none;display:grid;place-items:center}
+  .cv .lst i svg{width:70%;height:70%}
+  .cv .duo{display:grid;grid-template-columns:1fr 1.05fr;gap:4cqw;align-items:center;width:100%;height:100%}
+  .cv .chat{width:88%;border:.3cqw solid var(--line-2);border-radius:2cqw;background:rgba(20,20,23,.85);text-align:left;overflow:hidden}
+  .cv .chat .bar{display:flex;gap:1cqw;padding:1.6cqw 2cqw;border-bottom:.3cqw solid var(--line)}
+  .cv .chat .bar i{width:1.5cqw;height:1.5cqw;border-radius:50%;background:var(--surface-3)}
+  .cv .chat .bar i:first-child{background:var(--y-500)}
+  .cv .chat .crow{display:flex;gap:2cqw;align-items:center;padding:1.9cqw 2.4cqw;border-top:.3cqw solid var(--line);font:600 3cqw/1.2 var(--f-body)}
+  .cv .chat .crow span{width:5cqw;height:5cqw;border-radius:1.2cqw;background:var(--y-a20);display:grid;place-items:center;flex:none}
+  .cv .chat .crow svg{width:60%;height:60%;stroke:var(--y-500);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+  .cv .lv{display:flex;justify-content:center;gap:1.4cqw;margin-top:2cqw;flex-wrap:wrap}
+  .cv .lv span{font:700 2.3cqw/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;padding:1cqw 1.6cqw;border:.25cqw solid var(--y-a30);color:var(--y-300);border-radius:.8cqw}
+  .cv .note{font:500 2.8cqw/1.35 var(--f-body);color:var(--text-3);margin-top:1.4cqw}
+  .cv.spiral .cv-in::before{width:6cqw;background:repeating-linear-gradient(to bottom,transparent 0 2cqw,#B8B8C0 2cqw 3cqw,#5A5A62 3cqw 3.6cqw,transparent 3.6cqw 4.6cqw),#060607}
+  .cv.spiral .cv-in{padding-left:12cqw}
+  /* livro 3D */
+  .b3d{perspective:1800px;display:grid;place-items:center}
+  .bk{position:relative;width:100%;transform-style:preserve-3d;transform:rotateY(var(--ry,24deg)) rotateX(3deg);transition:transform .8s var(--ease)}
+  .b3d:hover .bk{transform:rotateY(calc(var(--ry,24deg) * .45)) rotateX(2deg)}
+  .bk .spine{position:absolute;top:0;bottom:0;right:100%;width:9%;transform-origin:right center;transform:rotateY(-90deg);background:linear-gradient(90deg,#050506,#141417 60%,#0B0B0C);display:grid;place-items:center;overflow:hidden}
+  .bk .spine::before{content:"";position:absolute;left:0;right:0;top:6%;height:5%;background:var(--y-500)}
+  .bk .spine::after{content:"";position:absolute;left:0;right:0;bottom:6%;height:1.5%;background:var(--y-500)}
+  .bk .spine span{writing-mode:vertical-rl;transform:rotate(180deg);font:800 clamp(6px,.9vw,12px)/1 var(--f-display);text-transform:uppercase;letter-spacing:.08em;color:var(--text-2);white-space:nowrap}
+  .bk .cv{box-shadow:0 40px 60px -30px rgba(0,0,0,.9)}
+  .bk .glare{position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,.07),transparent 38%);pointer-events:none}
+  .b3d .floor{width:80%;height:16px;margin-top:-4px;background:radial-gradient(closest-side,rgba(0,0,0,.75),transparent);filter:blur(4px)}
+
+  /* opção 1: fila compacta */
+  .o1{display:flex;align-items:flex-end;justify-content:center;padding-inline:6%}
+  .o1 .it{flex:none;margin-inline:-3.4%;position:relative}
+  .o1 .it:nth-child(1),.o1 .it:nth-child(7){width:15%}
+  .o1 .it:nth-child(2),.o1 .it:nth-child(6){width:18%}
+  .o1 .it:nth-child(3),.o1 .it:nth-child(5){width:22%}
+  .o1 .it:nth-child(4){width:30%}
+
+  /* opção 2: destaque + selo */
+  .o2{position:relative;height:330px}
+  .o2 .back{position:absolute;width:42%;left:4%;top:34px}
+  .o2 .back2{position:absolute;width:42%;right:4%;top:34px}
+  .o2 .front{position:absolute;width:54%;left:23%;top:0;z-index:3}
+  .o2 .seal{position:absolute;z-index:4;left:50%;bottom:-6px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 14px 8px 10px;border-radius:999px;background:#0B0B0C;border:1px solid var(--y-a30);box-shadow:0 14px 30px -10px #000;white-space:nowrap}
+  .o2 .seal .mini{display:flex}
+  .o2 .seal .mini > div{width:22px;margin-left:-8px;border-radius:2px;box-shadow:-2px 0 6px rgba(0,0,0,.6)}
+  .o2 .seal .mini > div:first-child{margin-left:0}
+  .o2 .seal b{font:800 17px/1 var(--f-display);text-transform:uppercase;color:var(--y-500)}
+  .o2 .seal span{font:600 10px/1.2 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
+
+  /* opção 3: carrossel */
+  .o3{display:grid;grid-auto-flow:column;grid-auto-columns:58%;gap:6%;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 21% 8px;scrollbar-width:none}
+  .o3::-webkit-scrollbar{display:none}
+  .o3 .it{scroll-snap-align:center;transition:transform .35s var(--ease),opacity .35s}
+  .o3 .it:not(.cur){transform:scale(.86);opacity:.55}
+  .o3-nav{display:flex;justify-content:center;align-items:center;gap:7px;margin-top:14px}
+  .o3-nav i{width:7px;height:7px;border-radius:50%;background:var(--surface-3);transition:.3s var(--ease)}
+  .o3-nav i.on{width:22px;border-radius:4px;background:var(--y-500)}
+  .o3-hint{font:600 10px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--text-4);margin-top:12px}
+  .o3-name{font:700 13px/1.2 var(--f-head);color:var(--text);margin-top:10px;min-height:16px}
+
+  /* opção 4: produtos + faixa de bônus */
+  .o4{display:grid;gap:18px}
+  .o4 .pr{display:grid;grid-template-columns:1fr 1fr;gap:8%;padding-inline:8%}
+  .o4 .sep{display:flex;align-items:center;gap:10px;font:600 10px/1 var(--f-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--y-300)}
+  .o4 .sep::before,.o4 .sep::after{content:"";flex:1;height:1px;background:var(--y-a30)}
+  .o4 .bn{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+  .o4 .bn .cv{box-shadow:0 12px 20px -10px #000}
+
+  .ask{margin-block:24px 56px;padding:24px;border-radius:16px;border:1px solid var(--y-a30);background:linear-gradient(135deg,rgba(246,193,17,.1),var(--surface) 60%);display:grid;gap:8px}
+  .ask h3{font:700 20px/1.3 var(--f-head)}
+  .ask p{color:var(--text-2)}
+  @media (max-width:420px){.pc{grid-template-columns:1fr}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="st" viewBox="-1 -1 2 2"><polygon points="0,-1 .2351,-.3236 .9511,-.309 .3804,.1236 .5878,.809 0,.4 -.5878,.809 -.3804,.1236 -.9511,-.309 -.2351,-.3236"/></symbol>
+    <symbol id="ck" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5" fill="none" stroke="#0B0B0C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </defs>
+</svg>
+
+<template id="t-emblem">
+  <svg viewBox="0 0 480 480" aria-hidden="true">
+    <circle class="e-ring" cx="240" cy="240" r="212" stroke-width="3"/>
+    <circle class="e-ring" cx="240" cy="240" r="200" stroke-width="1.5" opacity=".35"/>
+    <g class="e-ac">
+      <polygon points="26,112 172,112 172,132 44,132"/><polygon points="50,142 172,142 172,162 68,162"/><polygon points="74,172 172,172 172,192 92,192"/>
+      <polygon points="454,112 308,112 308,132 436,132"/><polygon points="430,142 308,142 308,162 412,162"/><polygon points="406,172 308,172 308,192 388,192"/>
+    </g>
+    <path class="e-bg e-sh" stroke-width="5" d="M240 50 316 76V146c0 48-32 78-76 100-44-22-76-52-76-100V76z"/>
+    <path fill="none" class="e-sh" stroke-width="1.5" opacity=".4" d="M240 68 300 88V146c0 38-26 62-60 80-34-18-60-42-60-80V88z"/>
+    <use href="#st" x="198" y="104" width="84" height="84" class="e-ac"/>
+    <g class="e-ac"><rect x="66" y="252" width="86" height="3"/><rect x="328" y="252" width="86" height="3"/></g>
+    <g transform="translate(37 0) skewX(-8)"><text class="logo-txt e-fg" x="240" y="268" text-anchor="middle" font-size="42" font-weight="800" letter-spacing="1">Método da</text></g>
+    <g transform="translate(44 0) skewX(-8)"><text class="logo-txt e-hl e-ko" x="240" y="358" text-anchor="middle" font-size="108" font-weight="900" stroke-width="14" textLength="404" lengthAdjust="spacingAndGlyphs">Aprovação</text></g>
+    <path class="e-ac" d="M58 378Q240 356 422 378Q240 368 58 378z"/>
+    <use href="#st" x="193" y="387" width="22" height="22" class="e-ac"/>
+    <use href="#st" x="224" y="380" width="32" height="32" class="e-ac"/>
+    <use href="#st" x="265" y="387" width="22" height="22" class="e-ac"/>
+    <polyline class="e-chev" stroke-width="8" points="206,416 240,431 274,416"/>
+    <polyline class="e-chev" stroke-width="8" points="206,430 240,445 274,430"/>
+  </svg>
+</template>
+
+<template id="logo-src">
+    <svg class="logo-h" viewBox="0 0 780 220" role="img" aria-label="Método da Aprovação">
+      <g transform="translate(0 -10)">
+        <g fill="#F6C111">
+          <polygon points="2,62 52,62 52,78 16,78"/><polygon points="14,88 52,88 52,104 28,104"/><polygon points="26,114 52,114 52,130 40,130"/>
+          <polygon points="238,62 188,62 188,78 224,78"/><polygon points="226,88 188,88 188,104 212,104"/><polygon points="214,114 188,114 188,130 200,130"/>
+        </g>
+        <path fill="#060607" stroke="#F6C111" stroke-width="7" d="M120 22 184 44V104c0 42-28 68-64 86-36-18-64-44-64-86V44z"/>
+        <use href="#st" x="80" y="58" width="80" height="80" fill="#F6C111"/>
+        <polyline fill="none" stroke="#F6C111" stroke-width="9" points="92,204 120,218 148,204"/>
+      </g>
+      <rect fill="#F6C111" x="262" y="30" width="3" height="160" opacity=".5"/>
+      <g transform="translate(10 0) skewX(-8)"><text x="292" y="80" font-family="Saira Condensed, Impact, sans-serif" font-size="46" font-weight="800" letter-spacing="1.5" fill="#FAFAFA">MÉTODO DA</text></g>
+      <g transform="translate(20 0) skewX(-8)"><text x="288" y="176" font-family="Saira Condensed, Impact, sans-serif" font-size="112" font-weight="900" fill="#F6C111" textLength="476" lengthAdjust="spacingAndGlyphs">APROVAÇÃO</text></g>
+      <path fill="#F6C111" d="M292 196Q530 184 768 196Q530 190 292 196z"/>
+    </svg>
+</template>
+
+<main class="wrap">
+  <header class="doc">
+    <span class="eyebrow">Combo da Aprovação PMMG 2027 · hero no celular</span>
+    <h1>Imagem do produto <span>no celular</span></h1>
+    <p>Quatro jeitos de mostrar os produtos logo abaixo do hero em telas pequenas. No computador a vitrine com os 7 livros continua como está. Cada aparelho abaixo mostra a tela real: role dentro dele para ver o topo, o texto e a imagem.</p>
+  </header>
+
+  <div class="opts">
+    <section class="opt">
+      <div class="opt-h"><span class="n">Opção 1</span><h2>Fila compacta</h2><p>Os 7 livros numa linha só, encostados, com as Apostilas maiores no centro. É a vitrine do computador reduzida.</p></div>
+      <div class="phone"><span class="notch"></span><div class="screen" data-hero="o1"></div></div>
+      <div class="pc"><div class="p"><b>A favor</b><ul><li>Mostra o kit inteiro</li><li>Igual ao computador</li></ul></div><div class="c"><b>Contra</b><ul><li>Capas das pontas ficam pequenas</li></ul></div></div>
+    </section>
+
+    <section class="opt">
+      <div class="opt-h"><span class="n">Opção 2</span><h2>Destaque + selo</h2><p>Apostilas grande na frente, Simulados e Edital atrás. Um selo com as miniaturas diz “+ 5 bônus”.</p></div>
+      <div class="phone"><span class="notch"></span><div class="screen" data-hero="o2"></div></div>
+      <div class="pc"><div class="p"><b>A favor</b><ul><li>Capa principal bem legível</li><li>Visual limpo</li></ul></div><div class="c"><b>Contra</b><ul><li>Bônus aparecem só como miniatura</li></ul></div></div>
+    </section>
+
+    <section class="opt">
+      <div class="opt-h"><span class="n">Opção 3</span><h2>Carrossel</h2><p>Um livro grande por vez, com a ponta dos vizinhos aparecendo. A pessoa arrasta para o lado. Experimente dentro do aparelho.</p></div>
+      <div class="phone"><span class="notch"></span><div class="screen" data-hero="o3"></div></div>
+      <div class="pc"><div class="p"><b>A favor</b><ul><li>Todas as capas grandes</li><li>Convida a interagir</li></ul></div><div class="c"><b>Contra</b><ul><li>Quem não arrasta vê só uma</li></ul></div></div>
+    </section>
+
+    <section class="opt">
+      <div class="opt-h"><span class="n">Opção 4</span><h2>Produtos + faixa de bônus</h2><p>Os 2 produtos em 3D lado a lado e, embaixo, os 5 bônus numa fileira de capas planas.</p></div>
+      <div class="phone"><span class="notch"></span><div class="screen" data-hero="o4"></div></div>
+      <div class="pc"><div class="p"><b>A favor</b><ul><li>Mostra tudo, organizado</li><li>Deixa clara a hierarquia</li></ul></div><div class="c"><b>Contra</b><ul><li>Ocupa mais altura</li></ul></div></div>
+    </section>
+  </div>
+
+  <div class="ask"><h3>Qual fica?</h3><p>Me diga o número da opção. Dá também para combinar, por exemplo a opção 2 com a faixa de bônus da opção 4 embaixo.</p></div>
+</main>
+
+<script>
+  /* ===== capas dos produtos (mesmas da apresentação aprovada) ===== */
+  const EMB = document.getElementById('t-emblem').innerHTML;
+  const ck = '<svg viewBox="0 0 24 24"><use href="#ck"/></svg>';
+  const ART = {
+    star:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+      <g fill="none" stroke-width="1.2" class="s-ya"><path d="M0 0 78 44M240 0 162 44M0 150 78 106M240 150 162 106"/></g>
+      <circle cx="120" cy="75" r="66" fill="none" class="s-ya" stroke-width="1.4" stroke-dasharray="3 5"/>
+      <circle cx="120" cy="75" r="48" fill="none" class="s-y" stroke-width="1.6" opacity=".7"/>
+      <g class="s-y" stroke-width="2" stroke-linecap="round"><path d="M22 75h32M186 75h32M120 2v14M120 134v14"/></g>
+      <use href="#st" x="78" y="31" width="84" height="84" class="f-y"/>
+      <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(22 28)"><path d="M0 2h8a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H0z"/><path d="M24 2h-8a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h9z"/></g>
+      <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" transform="translate(194 30)"><circle cx="10" cy="10" r="9"/><path d="m14 6-2 6-6 2 2-6z"/></g>
+    </svg>`,
+    sheet:(()=>{let s='<svg viewBox="0 0 112 132" preserveAspectRatio="xMidYMid meet"><rect x="1" y="1" width="110" height="130" rx="4" fill="none" class="s-ya" stroke-width="1.2"/>';
+      for(let r=0;r<6;r++){const y=18+r*20;s+=`<text x="10" y="${y+4}" font-family="JetBrains Mono,monospace" font-size="9" font-weight="700" class="f-t">${String(r+1).padStart(2,'0')}</text>`;
+        for(let k=0;k<4;k++){const on=k===(r*3+1)%4;s+=`<circle cx="${36+k*19}" cy="${y}" r="6.5" ${on?'class="f-y"':'fill="none" class="s-y" stroke-width="1.2" opacity=".6"'}/>`;
+          if(r===0)s+=`<text x="${36+k*19}" y="${y-10}" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7" class="f-t">${'ABCD'[k]}</text>`;}}
+      return s+'</svg>';})(),
+    doc:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+      <rect x="62" y="6" width="112" height="138" rx="6" fill="rgba(20,20,23,.9)" class="s-y" stroke-width="2"/>
+      <rect x="62" y="6" width="112" height="22" rx="6" class="f-ya"/>
+      <text x="118" y="21" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8.5" font-weight="700" class="f-y" letter-spacing="1.5">EDITAL PMMG</text>
+      ${[0,1,2,3,4].map(i=>{const y=44+i*20,on=i<3,w=[62,50,56,44,58][i];return `<rect x="76" y="${y-6}" width="11" height="11" rx="2.5" ${on?'class="f-y"':'fill="none" class="s-y" stroke-width="1.4"'}/>${on?`<path d="m78.5 ${y} 2.5 2.5 4-5" fill="none" stroke="#0B0B0C" stroke-width="1.8" stroke-linecap="round"/>`:''}<rect x="94" y="${y-2.5}" width="${w}" height="4" rx="2" fill="${on?'#52525B':'#3A3A40'}"/>`}).join('')}
+      <circle cx="172" cy="106" r="22" fill="#0E0E10" class="s-y" stroke-width="4"/>
+      <path d="m188 122 20 20" class="s-y" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="172" cy="106" r="12" fill="none" class="s-ya" stroke-width="1.5"/>
+    </svg>`,
+    grid30:(()=>{let s='<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">';
+      ['S','T','Q','Q','S','S'].forEach((d,i)=>s+=`<text x="${45+i*30}" y="10" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="8" font-weight="700" class="f-t">${d}</text>`);
+      for(let i=0;i<30;i++){const c=i%6,r=Math.floor(i/6),x=32+c*30,y=18+r*25,done=i<17,cur=i===17;
+        s+=`<rect x="${x}" y="${y}" width="26" height="21" rx="3" ${done?'class="f-ya"':cur?'fill="none" class="s-y" stroke-width="2"':'fill="none" class="s-g" stroke-width="1.2"'}/>`;
+        s+=`<text x="${x+4}" y="${y+8}" font-family="JetBrains Mono,monospace" font-size="6.5" ${cur?'class="f-y"':'class="f-t"'}>${i+1}</text>`;
+        if(done)s+=`<path d="m${x+10} ${y+13} 3 3 6-7" fill="none" class="s-y" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>`;}
+      return s+'</svg>';})(),
+    week:(()=>{let s='<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">';
+      const d=['SEG','TER','QUA','QUI','SEX','SÁB','DOM'],h=[[26,18,22],[30,20],[18,26,16],[28,22],[22,18,24],[34],[14]];
+      d.forEach((l,i)=>{const x=14+i*31;s+=`<text x="${x+13}" y="146" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="7.5" font-weight="700" class="f-t">${l}</text>`;
+        let y=132;h[i].forEach((hh,k)=>{y-=hh+3;s+=`<rect x="${x}" y="${y}" width="26" height="${hh}" rx="3" ${k===0?'class="f-y"':k===1?'class="f-ya"':'fill="none" class="s-y" stroke-width="1.3"'}/>`;});});
+      return s+'<path d="M8 135h226" class="s-g" stroke-width="1.2"/></svg>';})(),
+    chart:`<svg viewBox="0 0 240 150" preserveAspectRatio="xMidYMid meet">
+      <g class="s-g" stroke-width="1"><path d="M20 20h210M20 55h210M20 90h210M20 125h210"/></g>
+      ${[18,26,34,46,58,72,88,104].map((h,i)=>`<rect x="${26+i*26}" y="${125-h}" width="16" height="${h}" rx="2" ${i===7?'class="f-y"':'class="f-ya"'}/>`).join('')}
+      <polyline points="34,100 60,92 86,84 112,74 138,62 164,48 190,34 216,16" fill="none" class="s-y" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      ${[[34,100],[86,84],[138,62],[190,34]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="4" class="f-y"/>`).join('')}
+      <path d="m206 14 12 1-3 11" fill="none" class="s-y" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <g class="s-y" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(22 24) scale(.9)"><circle cx="14" cy="4" r="2.5"/><path d="m6 22 3-6 3 2v4M4 12l3-3 4 1 3 3 3 1M9 9l2-3h3"/></g>
+    </svg>`
+  };
+  const P = [
+    {n:'Produto 1',name:'Apostilas do Edital Completo',ts:'10cqw',tag:'Apostilas · 5 volumes',ttl:'Apostilas do<br><span class="y">Edital Completo</span>',sub:'Todo o conteúdo organizado conforme o edital oficial',art:ART.star,spine:'Apostilas do Edital Completo'},
+    {n:'Produto 2',name:'Simulados Padrão CRS',ts:'10.5cqw',tag:'Simulados · 5 volumes',ttl:'Simulados<br><span class="y">Padrão CRS</span>',sub:'Com gabarito comentado',
+     art:`<div class="duo">${ART.sheet}<ul class="lst">${['Padrão oficial CRS','Questões inéditas','Soluções detalhadas'].map(t=>`<li><i>${ck}</i>${t}</li>`).join('')}</ul></div>`,spine:'Simulados Padrão CRS'},
+    {n:'Bônus 1',name:'Edital Verticalizado',ts:'10.5cqw',tag:'Bônus 01',ttl:'Edital<br><span class="y">Verticalizado</span>',sub:'Teoria • Revisão • Questões',art:ART.doc,spine:'Edital Verticalizado'},
+    {n:'Bônus 2',name:'Planner de 30 Dias',ts:'10.5cqw',tag:'Bônus 02',spiral:true,ttl:'Planner de<span class="big">30 dias</span>',sub:'',art:ART.grid30,spine:'Planner de 30 Dias'},
+    {n:'Bônus 3',name:'Planejamento de Estudos',ts:'10cqw',tag:'Bônus 03',ttl:'Planejamento<br><span class="y">de Estudos</span>',sub:'Cronograma semanal',art:ART.week,spine:'Planejamento de Estudos'},
+    {n:'Bônus 4',name:'Prompts da Aprovação',ts:'10.5cqw',tag:'Bônus 04',ttl:'Prompts da<br><span class="y">Aprovação</span>',sub:'Estude com IA sem se perder',
+     art:`<div class="chat"><div class="bar"><i></i><i></i><i></i></div>
+       <div class="crow"><span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>Plano de Estudos</div>
+       <div class="crow"><span><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></span>Revisão</div>
+       <div class="crow"><span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.7M12 16h.01"/></svg></span>Resolução de Dúvidas</div></div>`,spine:'Prompts da Aprovação'},
+    {n:'Bônus 5',name:'Plano de Treino para o TAF',ts:'9.4cqw',tag:'Bônus 05 · 3 níveis',ttl:'Plano de Treino<br>para o <span class="y">TAF</span>',sub:'',
+     art:`<div style="display:grid;gap:1cqw;width:100%;height:100%;grid-template-rows:auto minmax(0,1fr) auto"><div class="lv"><span>Iniciante</span><span>Intermediário</span><span>Avançado</span></div>${ART.chart}<p class="note">Evolução semana a semana para conquistar os índices do edital.</p></div>`,spine:'Plano de Treino TAF'}
+  ];
+  const cover = p => `<div class="cv${p.spiral?' spiral':''}" role="img" aria-label="Capa: ${p.name}"><div class="cv-in" style="--ts:${p.ts}" aria-hidden="true">
+      <span class="tick t1"></span><span class="tick t2"></span><span class="tick t3"></span><span class="tick t4"></span>
+      <div class="emb">${EMB}</div><span class="tag">${p.tag}</span><div class="ttl">${p.ttl}</div>
+      ${p.sub?`<p class="sub">${p.sub}</p>`:'<span></span>'}<div class="art">${p.art}</div>
+      <div class="cvf"><span>Combo da Aprovação</span><b>PMMG 2027</b></div></div></div>`;
+  const book = (p,ry) => `<div class="b3d" style="--ry:${ry}deg"><div class="bk"><div class="spine"><span>${p.spine}</span></div>${cover(p)}<span class="glare"></span></div><div class="floor"></div></div>`;
+
+
+const heroTxt = `<div class="m-top">${document.getElementById('logo-src').innerHTML}</div>
+  <div class="m-hero">
+    <span class="tarja">EDITAL PREVISTO PARA 2027 - PMMG - CARGO SOLDADO</span>
+    <h3>Tudo que você precisa para <mark>passar na prova da PMMG 2027</mark>, do edital ao gabarito comentado.</h3>
+    <p class="lead">O Combo da Aprovação PMMG 2027 reúne 5 apostilas do edital completo, 5 simulados no padrão CRS com gabarito comentado e o passo a passo para você saber exatamente o que estudar todo dia, até o nome sair na lista de aprovados.</p>
+    <span class="btn">Quero estudar com direção</span>
+    <div class="m-img">%%IMG%%</div>
+  </div>`;
+
+const IMG = {
+  o1: `<div class="o1">${[3,2,1,0,5,4,6].map((ix,i)=>`<div class="it" style="z-index:${10-Math.abs(i-3)}">${book(P[ix],[34,28,20,0,-20,-28,-34][i])}</div>`).join('')}</div>`,
+  o2: `<div class="o2"><div class="back">${book(P[1],26)}</div><div class="back2">${book(P[2],-26)}</div><div class="front">${book(P[0],0)}</div>
+       <div class="seal"><div class="mini">${[2,3,4,5,6].map(i=>`<div>${cover(P[i])}</div>`).join('')}</div><div style="display:grid;gap:3px;text-align:left"><b>+ 5 bônus</b><span>inclusos no combo</span></div></div></div>`,
+  o3: `<div class="o3">${[0,1,2,3,4,5,6].map((ix,i)=>`<div class="it${i===0?' cur':''}" data-name="${P[ix].n} · ${P[ix].name}">${book(P[ix],14)}</div>`).join('')}</div>
+       <div class="o3-name">${P[0].n} · ${P[0].name}</div><div class="o3-nav">${P.map((_,i)=>`<i class="${i===0?'on':''}"></i>`).join('')}</div><div class="o3-hint">← arraste para ver os 7 →</div>`,
+  o4: `<div class="o4"><div class="pr">${[0,1].map(i=>`<div>${book(P[i],i?-18:18)}</div>`).join('')}</div><div class="sep">+ 5 bônus</div><div class="bn">${[2,3,4,5,6].map(i=>`<div>${cover(P[i])}</div>`).join('')}</div></div>`
+};
+document.querySelectorAll('[data-hero]').forEach(el => el.innerHTML = heroTxt.replace('%%IMG%%', () => IMG[el.dataset.hero]));
+
+// carrossel: destaca o livro central
+document.querySelectorAll('.o3').forEach(car => {
+  const its=[...car.children], dots=[...car.parentElement.querySelectorAll('.o3-nav i')], nm=car.parentElement.querySelector('.o3-name');
+  const upd=()=>{const c=car.getBoundingClientRect(),mid=c.left+c.width/2;let best=0,bd=1e9;
+    its.forEach((it,i)=>{const r=it.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-mid);if(d<bd){bd=d;best=i;}});
+    its.forEach((it,i)=>it.classList.toggle('cur',i===best));dots.forEach((d,i)=>d.classList.toggle('on',i===best));nm.textContent=its[best].dataset.name;};
+  car.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,811 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Wireframe Combo PMMG 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F1F3EF; --paper:#FBFCFA; --ink:#1B211D; --muted:#5E6962;
+  --wire:#A9B2AB; --fill:#E1E6E0; --fill2:#D2D9D2;
+  --red:#1F4FD1; --red-soft:#E3EAFB; --ok:#2E7A4A; --bad:#B2432F;
+  --ok-soft:#E1F1E6; --inv-bad:#FF9A85;
+  --display:"Archivo Narrow","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#131714; --paper:#1A1F1B; --ink:#E6EBE6; --muted:#9AA59D;
+    --wire:#4A544D; --fill:#252B26; --fill2:#2F3630;
+    --red:#86A4F5; --red-soft:#1E2742; --ok:#6CC48E; --bad:#E88A77;
+    --ok-soft:#1C2F23; --inv-bad:#B2432F;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#131714; --paper:#1A1F1B; --ink:#E6EBE6; --muted:#9AA59D;
+  --wire:#4A544D; --fill:#252B26; --fill2:#2F3630;
+  --red:#86A4F5; --red-soft:#1E2742; --ok:#6CC48E; --bad:#E88A77;
+  --ok-soft:#1C2F23; --inv-bad:#B2432F;
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font:15px/1.55 var(--body);padding:0 20px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:48px 80px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:-.005em}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+
+/* Header */
+header.doc{display:grid;gap:14px;max-width:760px;margin-bottom:36px}
+header.doc h1{font-size:clamp(34px,5vw,52px);line-height:1.02;font-weight:700}
+header.doc p{margin:0;color:var(--muted);max-width:64ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 20px;font:12px var(--mono);color:var(--muted)}
+.meta b{color:var(--ink);font-weight:500}
+
+/* Flow map */
+.flow{background:var(--paper);border:1px solid var(--wire);padding:18px;margin-bottom:56px}
+.flow h2{font-size:20px;margin-bottom:4px}
+.flow p{margin:0 0 14px;color:var(--muted);font-size:13.5px}
+.acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px}
+.act{border-top:2px solid var(--ink);padding-top:8px}
+.act .eyebrow{color:var(--muted)}
+.act ol{margin:6px 0 0;padding:0;list-style:none;display:grid;gap:3px}
+.act li{font-size:13.5px}
+.act li a{color:var(--ink);text-decoration:none;display:flex;gap:8px}
+.act li a:hover,.act li a:focus-visible{color:var(--red)}
+.act li span{font:12px var(--mono);color:var(--red);min-width:20px}
+.cta-dot{display:inline-block;font:500 10px var(--mono);color:var(--paper);background:var(--red);padding:1px 5px;margin-left:4px;letter-spacing:.05em}
+
+/* Block */
+.block{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:28px;padding-block:34px;border-top:1px solid var(--wire);scroll-margin-top:16px}
+.block-head{grid-column:1/-1;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.num{font:500 13px var(--mono);color:var(--red);border:1px solid var(--red);padding:2px 7px}
+.block-head h2{font-size:26px;font-weight:700}
+.block-head .tag{font:11px var(--mono);color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:820px){.block{grid-template-columns:1fr}}
+
+/* Notes */
+.notes{display:grid;gap:14px;align-content:start;font-size:14px}
+.notes h4{margin:0 0 3px;font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.notes p{margin:0}
+.notes ul{margin:0;padding-left:18px}
+.notes li{margin:2px 0}
+.copy{font-size:13.5px;color:var(--ink);border-left:2px solid var(--fill2);padding-left:10px}
+.copy p + p,.copy p + ul,.copy ul + p,.copy p + ol,.copy ol + p{margin-top:8px}
+.copy .k{display:block;font:500 10.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+.copy .new{color:var(--red)}
+.copy q{quotes:"“" "”"}
+.rec{background:var(--red-soft);color:var(--ink);padding:10px 12px;font-size:13.5px}
+.rec h4{color:var(--red)}
+
+/* Wireframe primitives */
+.wf{background:var(--paper);border:1.5px solid var(--ink);padding:22px;display:grid;gap:14px;align-content:start;align-self:start;position:relative}
+.wf.dark{background:var(--fill2)}
+.ph{background:var(--fill);border:1px dashed var(--wire);display:grid;place-items:center;text-align:center;font:11px/1.3 var(--mono);color:var(--muted);padding:10px;min-height:60px}
+.ph.img{background-image:linear-gradient(to top right,transparent calc(50% - .5px),var(--wire) 50%,transparent calc(50% + .5px)),linear-gradient(to top left,transparent calc(50% - .5px),var(--wire) 50%,transparent calc(50% + .5px))}
+.ph.img span{background:var(--fill);padding:2px 6px}
+.sq{aspect-ratio:1/1}.wide{aspect-ratio:16/9}.pano{aspect-ratio:21/8}
+.ln{height:8px;background:var(--fill2);border-radius:1px}
+.ln.h{height:20px;background:var(--ink);opacity:.82}
+.ln.h2{height:14px;background:var(--ink);opacity:.7}
+.ln.s{height:7px}
+.w90{width:90%}.w80{width:80%}.w70{width:70%}.w60{width:60%}.w50{width:50%}.w40{width:40%}.w30{width:30%}
+.stack{display:grid;gap:7px}
+.center{justify-items:center;text-align:center}
+.btn{background:var(--red);color:var(--paper);font:600 12px var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:12px 18px;text-align:center;justify-self:start}
+.center .btn,.btn.c{justify-self:center}
+.chip{font:11px var(--mono);border:1px solid var(--ink);padding:3px 8px;justify-self:start;letter-spacing:.06em;text-transform:uppercase}
+.center .chip{justify-self:center}
+.row{display:grid;gap:12px;grid-template-columns:repeat(var(--c,2),minmax(0,1fr))}
+@media (max-width:560px){.row{grid-template-columns:1fr}.row.keep{grid-template-columns:repeat(var(--c,2),minmax(0,1fr))}}
+.card{border:1px solid var(--wire);padding:12px;display:grid;gap:7px;align-content:start;background:var(--paper)}
+.li{display:flex;gap:8px;align-items:center}
+.li i{font-style:normal;font:12px var(--mono);width:16px;flex:none}
+.li i.x{color:var(--bad)}.li i.v{color:var(--ok)}
+.li .ln{flex:1}
+.lbl{font:11px var(--mono);color:var(--muted)}
+.audio{display:flex;align-items:center;gap:12px;border:1.5px solid var(--ink)}
+.play{flex:none;width:30px;height:30px;display:grid;place-items:center;background:var(--red);color:var(--paper);font-size:11px;border-radius:50%}
+.wave{flex:1;min-width:0;height:28px;display:flex;align-items:center;gap:3px;overflow:hidden}
+.wave i{flex:1;min-width:2px;height:var(--h);background:var(--wire);border-radius:1px}
+@media (max-width:560px){.audio .stack{display:none}}
+.blist{display:grid}
+.brow{display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;padding-block:14px}
+.brow + .brow{border-top:1px solid var(--wire)}
+.brow.flip{grid-template-columns:minmax(0,1fr) 110px}
+.brow.flip .ph{order:2}
+.brow.flip .stack{justify-items:end;text-align:right}
+.brow.flip .stack .ln{justify-self:end}
+.brow.flip .chip{justify-self:end}
+@media (max-width:560px){
+  .brow,.brow.flip{grid-template-columns:72px minmax(0,1fr)}
+  .brow.flip .ph{order:0}
+  .brow.flip .stack,.brow.flip .stack .ln,.brow.flip .chip{justify-self:start;justify-items:start;text-align:left}
+}
+.quote{gap:8px;padding:16px}
+.qm{font:700 34px/.6 var(--display);color:var(--red);height:14px}
+.qm.end{justify-self:end}
+.who{font:600 13px var(--body);color:var(--ink);border-top:1px solid var(--wire);padding-top:8px;margin-top:2px}
+.carousel{display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - 36px) / 3.25);gap:12px;overflow:hidden;mask-image:linear-gradient(to right,#000 88%,transparent);-webkit-mask-image:linear-gradient(to right,#000 88%,transparent)}
+.quote.more{border-style:dashed}
+.quote.more .who{color:var(--muted);font-weight:500}
+.car-nav{display:flex;justify-content:center;align-items:center;gap:14px;font:12px var(--mono);color:var(--muted)}
+.arrow{width:28px;height:28px;display:grid;place-items:center;border:1px solid var(--ink);color:var(--ink)}
+.dots{letter-spacing:.2em;color:var(--red)}
+@media (max-width:560px){.carousel{grid-auto-columns:82%}}
+.vlist{width:min(520px,100%);display:grid}
+.vrow{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 2px;border-bottom:1.5px dashed var(--wire)}
+.vrow .ln{flex:0 1 auto}
+.vprice{font:500 13px var(--mono);color:var(--bad);text-decoration:line-through;white-space:nowrap;font-variant-numeric:tabular-nums;min-width:8ch;text-align:left}
+.vrow.total{border-bottom:0;margin-top:10px;padding:12px 14px;background:var(--fill)}
+.vlabel{font:600 14px var(--body);color:var(--ink)}
+.vrow.total .vprice{font-size:15px;font-weight:600}
+.pricebox{width:min(560px,100%);display:grid;justify-items:center;gap:6px;border:1.5px solid var(--ink);background:var(--paper);padding:22px 20px 20px;text-align:center}
+.pb-lead{font:500 15px var(--body);color:var(--ink)}
+.pb-price{font:700 clamp(52px,12vw,72px)/1 var(--display);color:var(--ok);letter-spacing:-.01em;font-variant-numeric:tabular-nums;padding-block:4px;white-space:nowrap}
+.pb-inst{font:13px var(--body);color:var(--muted)}
+.pb-note{margin:8px 0 6px;font-size:13px;line-height:1.45;color:var(--ink)}
+.pb-pay{margin:6px 0 4px;font-size:12.5px;font-style:italic;color:var(--ink)}
+.seals{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;padding-top:6px}
+.seal{display:flex;align-items:center;gap:8px;text-align:left}
+.seal-ic{width:30px;height:30px;min-height:0;padding:0;font-size:7.5px;border-radius:4px}
+.seal-t{display:grid;line-height:1.15;font-size:12px;color:var(--muted)}
+.seal-t b{font-size:13px;color:var(--ink)}
+.paylogos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;padding-top:8px}
+.pay-lead{font:500 8.5px/1.25 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:left;margin-right:4px}
+.pl{min-height:0;padding:5px 7px;font-size:9.5px}
+.guar{display:grid;grid-template-columns:minmax(120px,.8fr) minmax(0,2fr);gap:22px;align-items:center}
+.chip.ok{border-color:var(--ok);color:var(--ok);border-radius:999px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;padding-top:4px}
+.pills span{display:flex;align-items:center;gap:6px;border:1px solid var(--wire);border-radius:6px;padding:6px 10px;font:12px var(--mono);color:var(--ok);min-width:96px;flex:1}
+.pills .ln{flex:1;display:block;height:6px}
+@media (max-width:560px){.guar{grid-template-columns:1fr}.guar > .ph{width:120px;justify-self:center}}
+.faqs{width:min(560px,100%);justify-self:center;display:grid;gap:8px}
+.fq{border:1px solid var(--wire);border-radius:8px;background:var(--paper)}
+.fq.open{border-color:var(--ink)}
+.fq-q{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;font:500 13.5px var(--body);color:var(--ink)}
+.fq-ic{flex:none;width:22px;height:22px;display:grid;place-items:center;border-radius:50%;background:var(--fill);font:600 13px var(--mono);color:var(--ink)}
+.fq.open .fq-ic{background:var(--red);color:var(--paper)}
+.fq-a{display:grid;gap:7px;padding:0 14px 14px;border-top:1px dashed var(--wire);padding-top:12px;margin:0 14px;padding-inline:0}
+.foot{width:100%;border-top:1px dashed var(--wire);padding-top:14px;display:grid;grid-template-columns:110px minmax(0,1fr);gap:18px;align-items:center;text-align:left}
+.foot-logo{aspect-ratio:1/1;min-height:0;font-size:9.5px}
+@media (max-width:560px){.foot{grid-template-columns:1fr;justify-items:center}.foot-logo{width:90px}.foot .stack{width:100%}}
+.prod{justify-items:center;text-align:center}
+.prod .ph{justify-self:stretch}
+.real{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink);max-width:52ch}
+.big{font:700 34px/1 var(--display);color:var(--ink)}
+.strike{font:13px var(--mono);color:var(--muted);text-decoration:line-through}
+.anno{position:absolute;top:-10px;right:14px;background:var(--red);color:var(--paper);font:500 10px var(--mono);padding:2px 6px;letter-spacing:.06em}
+.farda{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,1.2fr);gap:14px;align-items:stretch}
+.farda b{font:700 32px/1 var(--display);color:var(--ink)}
+.farda .lbl{color:var(--ink);font-weight:500}
+.cycle{border:1.5px dashed var(--red);padding:18px 12px 10px;display:grid;gap:10px;position:relative}
+.cycle-tag,.goal-tag{position:absolute;top:-9px;left:10px;font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:1px 6px;background:var(--paper);color:var(--red)}
+.cycle-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.cycle-steps .card{position:relative}
+.cycle-steps .card + .card::before{content:"→";position:absolute;left:-16px;top:12px;font:13px var(--mono);color:var(--red)}
+.loop{border-top:1.5px solid var(--red);border-left:1.5px solid var(--red);border-right:1.5px solid var(--red);height:12px;margin:0 12%;transform:scaleY(-1);position:relative}
+.loop span{position:absolute;left:50%;top:4px;transform:translateX(-50%) scaleY(-1);white-space:nowrap;background:var(--paper);padding:0 6px;font:11px var(--mono);color:var(--red)}
+.goal{background:var(--fill2);border:1.5px solid var(--ink);padding:18px 12px 12px;display:grid;gap:7px;align-content:center;position:relative}
+.goal .goal-tag{background:var(--fill2);color:var(--ink)}
+@media (max-width:640px){
+  .farda{grid-template-columns:1fr}
+  .cycle-steps{grid-template-columns:1fr;gap:18px}
+  .cycle-steps .card + .card::before{content:"↓";left:14px;top:-17px}
+  .loop{margin:4px 0 0;height:auto;border:0;transform:none}
+  .loop span{position:static;transform:none;white-space:normal;padding:0}
+}
+.faq{border-bottom:1px solid var(--wire);padding:9px 0;display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.faq:first-child{border-top:1px solid var(--wire)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--wire)}
+.cmp > div{padding:12px;display:grid;gap:7px;align-content:start}
+.cmp > div + div{border-left:1px solid var(--wire);background:var(--red-soft)}
+.cmp h5{margin:0;font:600 12px var(--mono);text-transform:uppercase;letter-spacing:.06em}
+
+/* Summary */
+.sum{border-top:2px solid var(--ink);padding-top:26px;margin-top:10px;display:grid;gap:20px}
+.sum h2{font-size:28px}
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.sum-grid h3{font-size:17px;margin-bottom:6px}
+.sum-grid ul{margin:0;padding-left:18px;font-size:14px}
+.sum-grid li{margin:3px 0}
+a:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="doc">
+  <span class="eyebrow">Proposta de wireframe · página de vendas</span>
+  <h1>Combo da Aprovação PMMG 2027 — blocos da página</h1>
+  <p>Estrutura em 17 blocos montada a partir da cópia da página atual. Cada bloco traz o esboço do layout, o trecho da cópia que entra nele e as recomendações para a nova construção. Os botões em azul marcam onde a página chama para a compra.</p>
+  <div class="meta">
+    <span>Produto <b>Combo da Aprovação PMMG 2027</b></span>
+    <span>Oferta <b>R$ 47 · Pix ou 11x</b></span>
+    <span>Garantia <b>14 dias</b></span>
+    <span>Público <b>candidatos a Soldado PMMG · banca CRS</b></span>
+  </div>
+</header>
+
+<nav class="flow" aria-label="Mapa da página">
+  <h2>Mapa da página</h2>
+  <p>A cópia segue quatro movimentos. Os blocos estão na ordem de rolagem.</p>
+  <div class="acts">
+    <div class="act"><span class="eyebrow">Atenção</span>
+      <ol>
+        <li><a href="#b1"><span>01</span>Hero + promessa <em class="cta-dot">CTA</em></a></li>
+        <li><a href="#b2"><span>02</span>Identificação das dores</a></li>
+        <li><a href="#b3"><span>03</span>Virada: “não é você”</a></li>
+      </ol></div>
+    <div class="act"><span class="eyebrow">Problema → solução</span>
+      <ol>
+        <li><a href="#b4"><span>04</span>O verdadeiro motivo</a></li>
+        <li><a href="#b5"><span>05</span>Estudar com direção <em class="cta-dot">CTA</em></a></li>
+        <li><a href="#b6"><span>06</span>Sozinho × Combo</a></li>
+        <li><a href="#b7"><span>07</span>Depoimentos + áudio</a></li>
+      </ol></div>
+    <div class="act"><span class="eyebrow">Mecanismo e produto</span>
+      <ol>
+        <li><a href="#b8"><span>08</span>Método FARDA <em class="cta-dot">CTA</em></a></li>
+        <li><a href="#b9"><span>09</span>Sua jornada em 5 passos</a></li>
+        <li><a href="#b10"><span>10</span>O que você recebe</a></li>
+        <li><a href="#b11"><span>11</span>5 bônus</a></li>
+        <li><a href="#b12"><span>12</span>Depoimentos de alunos</a></li>
+      </ol></div>
+    <div class="act"><span class="eyebrow">Fechamento</span>
+      <ol>
+        <li><a href="#b13"><span>13</span>Recapitulação</a></li>
+        <li><a href="#b14"><span>14</span>Oferta e preço <em class="cta-dot">CTA</em></a></li>
+        <li><a href="#b15"><span>15</span>Garantia 14 dias</a></li>
+        <li><a href="#b16"><span>16</span>FAQ</a></li>
+        <li><a href="#b17"><span>17</span>Chamada final + rodapé <em class="cta-dot">CTA</em></a></li>
+      </ol></div>
+  </div>
+</nav>
+
+<!-- 01 -->
+<section class="block" id="b1">
+  <div class="block-head"><span class="num">01</span><h2>Hero + promessa</h2><span class="tag">acima da dobra</span></div>
+  <div class="wf">
+    <span class="anno">CTA 1</span>
+    <div class="row" style="--c:2;align-items:center">
+      <div class="stack">
+        <span class="chip">Edital previsto 2027 · Soldado</span>
+        <div class="ln h w90"></div><div class="ln h w80"></div><div class="ln h w50"></div>
+        <div style="height:6px"></div>
+        <div class="ln w90"></div><div class="ln w90"></div><div class="ln w70"></div>
+        <div style="height:6px"></div>
+        <div class="btn">Quero estudar com direção</div>
+      </div>
+      <div class="ph img sq"><span>mockup do combo<br>apostilas + simulados</span></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Dizer em 5 segundos para quem é, o que é e o que a pessoa leva.</p></div>
+    <div class="copy"><h4>Cópia</h4>
+      <p><span class="k">Tarja</span>EDITAL PREVISTO PARA 2027 - PMMG - CARGO SOLDADO</p>
+      <p><span class="k">Título</span>Tudo que você precisa para passar na prova da PMMG 2027, do edital ao gabarito comentado.</p>
+      <p><span class="k">Subtítulo</span>O Combo da Aprovação PMMG 2027 reúne 5 apostilas do edital completo, 5 simulados no padrão CRS com gabarito comentado e o passo a passo para você saber exatamente o que estudar todo dia, até o nome sair na lista de aprovados.</p>
+      <p class="new"><span class="k">Botão (novo)</span>Quero estudar com direção</p></div>
+    <div class="rec"><h4>Recomendação</h4><p>A página original não tem botão no hero. Incluir aqui o CTA “Quero estudar com direção”, sem linha abaixo do botão. No celular, o mockup vem abaixo do título.</p></div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section class="block" id="b2">
+  <div class="block-head"><span class="num">02</span><h2>Identificação das dores</h2><span class="tag">espelho</span></div>
+  <div class="wf">
+    <div class="ln h2 w70"></div>
+    <div class="row" style="--c:2">
+      <div class="card"><span class="lbl">“</span><div class="ln w90"></div><div class="ln w60"></div></div>
+      <div class="card"><span class="lbl">“</span><div class="ln w90"></div><div class="ln w70"></div></div>
+      <div class="card"><span class="lbl">“</span><div class="ln w80"></div><div class="ln w50"></div></div>
+      <div class="card"><span class="lbl">“</span><div class="ln w90"></div><div class="ln w60"></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>O leitor se reconhece nas frases que ele mesmo já pensou.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Se você chegou até aqui, provavelmente já se pegou pensando em alguma dessas:</p>
+      <p><span class="k">Cartão 1</span>“Estudo, estudo, e na hora da prova parece que não sei nada.”</p>
+      <p><span class="k">Cartão 2</span>“Baixei um monte de PDF, comprei apostila de vários lugares e não terminei nenhuma.”</p>
+      <p><span class="k">Cartão 3</span>“Não sei se tô estudando o que realmente cai no concurso da PMMG.”</p>
+      <p><span class="k">Cartão 4</span>“Vejo gente que estuda menos que eu passando, e eu travo.”</p></div>
+    <div><h4>Componente</h4><p>4 cartões tipo balão de pensamento, em grade 2×2 (1 coluna no celular). Trocar os emojis ➡️ por aspas grandes.</p></div>
+  </div>
+</section>
+
+<!-- 03 -->
+<section class="block" id="b3">
+  <div class="block-head"><span class="num">03</span><h2>Virada: “o problema quase nunca é você”</h2><span class="tag">faixa de destaque</span></div>
+  <div class="wf dark center">
+    <div class="ln h2 w60"></div>
+    <div class="ln w80"></div><div class="ln w80"></div><div class="ln w60"></div>
+    <div class="ln h2 w40" style="opacity:.5"></div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Tirar a culpa do leitor e apontar a causa real: estudar “no escuro”.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Presta atenção nisso: o problema quase nunca é você.</p>
+      <p><span class="k">Texto</span>A maioria dos candidatos da PMMG que reprova não reprova por preguiça. Reprova estudando muito, só que estudando no escuro, sem saber o que priorizar, sem medir se está evoluindo e sem uma rotina que se sustente até o dia da prova.</p>
+      <p><span class="k">Fecho</span>Esse é o ponto que separa quem passa de quem fica pra trás. E é exatamente isso que o Combo resolve.</p></div>
+    <div><h4>Componente</h4><p>Faixa de fundo contrastante, texto centralizado e curto. Serve de respiro visual entre os blocos de lista.</p></div>
+  </div>
+</section>
+
+<!-- 04 -->
+<section class="block" id="b4">
+  <div class="block-head"><span class="num">04</span><h2>O verdadeiro motivo de tanta gente reprovar</h2><span class="tag">problema</span></div>
+  <div class="wf">
+    <div class="stack center" style="width:min(460px,100%);justify-self:center">
+      <div class="ln h2 w90"></div><div class="ln h2 w60"></div>
+      <div style="height:4px"></div>
+      <div class="ln w90"></div><div class="ln w80"></div>
+      <div class="ln w70"></div>
+      <div class="ln w80"></div>
+    </div>
+    <div class="row" style="--c:2;width:min(460px,100%);justify-self:center">
+      <div class="card"><i class="lbl" style="color:var(--bad);font-style:normal">✕</i><div class="ln w90"></div><div class="ln w60"></div></div>
+      <div class="card"><i class="lbl" style="color:var(--bad);font-style:normal">✕</i><div class="ln w80"></div><div class="ln w70"></div></div>
+      <div class="card"><i class="lbl" style="color:var(--bad);font-style:normal">✕</i><div class="ln w90"></div><div class="ln w70"></div></div>
+      <div class="card"><i class="lbl" style="color:var(--bad);font-style:normal">✕</i><div class="ln w90"></div><div class="ln w50"></div></div>
+    </div>
+    <div class="stack" style="width:min(460px,100%);justify-self:center;border-left:3px solid var(--ink);padding:4px 0 4px 12px">
+      <div class="ln w90"></div><div class="ln w60"></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Mostrar que conteúdo espalhado não é plano de estudo.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>O verdadeiro motivo de tanta gente reprovar</p>
+      <p><span class="k">Texto</span>Conteúdo é o que mais tem. Você acha edital, resumo, vídeo e apostila de graça em todo canto. E mesmo assim a taxa de reprovação é enorme.</p>
+      <p>Por quê? Porque conteúdo espalhado não é plano de estudo.</p>
+      <p>Quando você junta material de dez lugares diferentes, acontece o seguinte:</p>
+      <p><span class="k">Lista ✕</span>Você estuda o assunto errado na hora errada.<br>Não sabe o que a banca CRS cobra de verdade.<br>Não revisa no tempo certo e esquece o que já viu.<br>Não mede seu nível, então descobre que errou só no dia da prova.</p>
+      <p><span class="k">Fecho</span>O resultado é sempre o mesmo: esforço grande, sensação de que “não sabe nada”, e a vaga escapando por pouco.</p></div>
+    <div><h4>Componente</h4><p>Tudo empilhado e centralizado, na ordem da cópia: título, texto, os 4 itens da lista em cartões 2×2 com ✕ e o fecho em destaque, com barra à esquerda. No celular, os cartões ficam em 1 coluna.</p></div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section class="block" id="b5">
+  <div class="block-head"><span class="num">05</span><h2>A solução: estudar com direção</h2><span class="tag">apresentação do produto</span></div>
+  <div class="wf">
+    <span class="anno">CTA 2</span>
+    <div class="row" style="--c:2;align-items:center">
+      <div class="ph img wide"><span>imagem: combo como “GPS até a farda”</span></div>
+      <div class="stack">
+        <div class="ln h2 w70"></div><div class="ln h2 w50"></div>
+        <div class="ln w90"></div><div class="ln w90"></div><div class="ln w80"></div><div class="ln w60"></div>
+        <div style="height:6px"></div>
+        <div class="btn">Quero parar de estudar no escuro</div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Apresentar o Combo como o caminho já traçado: edital na ordem, medição semanal e rotina.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>A solução não é estudar mais. É estudar com direção.</p>
+      <p><span class="k">Texto</span>O Combo da Aprovação foi montado para ser o seu GPS até a farda: o edital inteiro organizado na ordem certa, um jeito de medir sua evolução a cada semana e uma rotina que te puxa todo dia. Você para de decidir “o que estudo hoje?” e passa a seguir um caminho já traçado por quem entende da prova.</p>
+      <p><span class="k">Botão</span>Quero parar de estudar no escuro</p></div>
+    <div><h4>Componente</h4><p>Imagem à esquerda, texto e botão à direita. No celular, o botão fica logo abaixo do texto.</p></div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section class="block" id="b6">
+  <div class="block-head"><span class="num">06</span><h2>Estudar sozinho × Estudar com o Combo</h2><span class="tag">comparativo</span></div>
+  <div class="wf">
+    <div class="ln h2 w60" style="justify-self:center"></div>
+    <div class="cmp">
+      <div><h5>Por conta, no escuro</h5>
+        <div class="li"><i class="x">✕</i><div class="ln"></div></div>
+        <div class="li"><i class="x">✕</i><div class="ln w80"></div></div>
+        <div class="li"><i class="x">✕</i><div class="ln"></div></div>
+        <div class="li"><i class="x">✕</i><div class="ln w70"></div></div>
+        <div class="li"><i class="x">✕</i><div class="ln w80"></div></div>
+      </div>
+      <div><h5>Com o Combo</h5>
+        <div class="li"><i class="v">✓</i><div class="ln"></div></div>
+        <div class="li"><i class="v">✓</i><div class="ln w80"></div></div>
+        <div class="li"><i class="v">✓</i><div class="ln"></div></div>
+        <div class="li"><i class="v">✓</i><div class="ln w70"></div></div>
+        <div class="li"><i class="v">✓</i><div class="ln w80"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Contraste direto entre os dois caminhos.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Estudar sozinho X Estudar com o combo</p>
+      <p><span class="k">Coluna ✕ · Estudando por conta, no escuro</span>Junta PDF de tudo quanto é canto e não termina nenhum<br>Estuda muito, mas não sabe se está evoluindo<br>Não sabe o que cai mais nem por onde começar<br>Estuda sem rotina, para e recomeça toda semana<br>Descobre o que errou só na hora da prova</p>
+      <p><span class="k">Coluna ✓ · Com o Combo da Aprovação</span>Edital inteiro organizado em 5 apostilas, na sequência certa<br>Simulados no padrão CRS mostram seu nível real a cada rodada<br>Edital verticalizado aponta a prioridade de cada assunto<br>Planner de 30 dias e cronograma semanal te puxam todo dia<br>Gabarito comentado corrige seu raciocínio na mesma hora</p></div>
+    <div class="rec"><h4>Recomendação</h4><p>Reescrever a comparação em HTML (duas colunas, linha a linha), que fica legível no celular e indexável. São 5 linhas, e cada ✕ tem o seu ✓ correspondente na mesma altura. No celular, cada par vira um cartão com o ✕ em cima e o ✓ embaixo. Este bloco fica sem botão.</p></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section class="block" id="b7">
+  <div class="block-head"><span class="num">07</span><h2>Depoimentos + áudio</h2><span class="tag">prova social 1</span></div>
+  <div class="wf">
+    <div class="ln h2 w50" style="justify-self:center"></div>
+    <div class="card audio">
+      <div class="ph" style="min-height:40px;width:40px;padding:0;border-radius:50%;flex:none"></div>
+      <div class="stack" style="width:88px;flex:none"><div class="ln s w90"></div><div class="ln s w60"></div></div>
+      <span class="play">▶</span>
+      <div class="wave" aria-hidden="true"><i style="--h:30%"></i><i style="--h:55%"></i><i style="--h:80%"></i><i style="--h:45%"></i><i style="--h:95%"></i><i style="--h:60%"></i><i style="--h:35%"></i><i style="--h:70%"></i><i style="--h:50%"></i><i style="--h:85%"></i><i style="--h:40%"></i><i style="--h:65%"></i><i style="--h:30%"></i><i style="--h:75%"></i><i style="--h:55%"></i><i style="--h:90%"></i><i style="--h:45%"></i><i style="--h:60%"></i><i style="--h:35%"></i><i style="--h:50%"></i></div>
+      <span class="lbl">0:32</span>
+    </div>
+    <div class="row" style="--c:2">
+      <div class="card">
+        <div class="li"><div class="ph" style="min-height:32px;width:32px;padding:0;border-radius:50%"></div><div class="stack" style="flex:1"><div class="ln s w60"></div><div class="ln s w40"></div></div></div>
+        <span class="lbl">“</span><div class="ln"></div><div class="ln w90"></div><div class="ln w70"></div>
+      </div>
+      <div class="card">
+        <div class="li"><div class="ph" style="min-height:32px;width:32px;padding:0;border-radius:50%"></div><div class="stack" style="flex:1"><div class="ln s w60"></div><div class="ln s w40"></div></div></div>
+        <span class="lbl">“</span><div class="ln"></div><div class="ln w90"></div><div class="ln w80"></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Confirmar a solução com a fala de quem usou.</p></div>
+    <div class="copy"><h4>Cópia</h4><p class="new"><span class="k">Título (novo)</span>Veja o que mudou na rotina de quem já estuda com o Combo</p>
+      <p><span class="k">Alternativa</span>Veja o que já aconteceu com alunos que seguiram o Método</p>
+      <p><span class="k">Maykon Souza · @oculto</span>Eu sempre começava estudar e parava por falta de organização. Com o material organizado e o edital verticalizado, consegui criar uma rotina e manter a constância nos estudos. Muito bom o material.</p>
+      <p><span class="k">Caio Fernandes · @usuario</span>Eu trabalho o dia todo e não consigo estudar por materiais enormes. As apostilas são diretas ao ponto e os simulados comentados aceleraram muito minhas revisões. Hoje consigo estudar em poucas horas sem a sensação de estar perdido.</p>
+      <p class="new"><span class="k">Áudio (novo, no lugar do vídeo)</span>Depoimento em áudio, 0:32. Falta definir de quem é o áudio (nome e foto).</p></div>
+    <div><h4>Componente</h4><p>Título centralizado. Logo abaixo, o player de áudio em largura total, com foto, nome, botão ▶, forma de onda e duração. Por último, os 2 depoimentos escritos lado a lado, que ficam em 1 coluna no celular.</p></div>
+    <div class="rec"><h4>Atenção</h4><p>Os @ aparecem como “@oculto” e “@usuario”. Confirmar com o cliente que os depoimentos são reais e autorizados antes de publicar, ou remover o @.</p></div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section class="block" id="b8">
+  <div class="block-head"><span class="num">08</span><h2>Por que funciona: o Método FARDA</h2><span class="tag">mecanismo único</span></div>
+  <div class="wf">
+    <span class="anno">CTA 3</span>
+    <div class="stack center"><div class="ln h2 w60"></div><div class="ln w80"></div></div>
+    <div class="farda">
+      <div class="cycle">
+        <span class="cycle-tag">Ciclo semanal</span>
+        <div class="cycle-steps">
+          <div class="card"><b>F</b><span class="lbl">Foco</span><div class="ln s w90"></div><div class="ln s w70"></div><div class="ln s w50"></div></div>
+          <div class="card"><b>A</b><span class="lbl">Aplicação</span><div class="ln s w90"></div><div class="ln s w80"></div><div class="ln s w40"></div></div>
+          <div class="card"><b>R</b><span class="lbl">Revisão</span><div class="ln s w90"></div><div class="ln s w60"></div></div>
+          <div class="card"><b>D</b><span class="lbl">Diagnóstico</span><div class="ln s w80"></div><div class="ln s w90"></div><div class="ln s w50"></div></div>
+        </div>
+        <div class="loop"><span>↺ volta ao F toda semana, até o dia da prova</span></div>
+      </div>
+      <div class="goal">
+        <span class="goal-tag">Resultado</span>
+        <b>A</b><span class="lbl">Aprovação</span>
+        <div class="ln s w90"></div><div class="ln s w80"></div><div class="ln s w50"></div>
+      </div>
+    </div>
+    <div class="ln w70" style="justify-self:center"></div>
+    <div class="btn c">Quero seguir o Método FARDA</div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Dar nome ao método para que o Combo não pareça “só mais uma apostila”.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Por que o Combo funciona: o Método FARDA</p>
+      <p><span class="k">Texto</span>Todo o material segue um método próprio, pensado pra quem vai vestir a farda. Cada letra é uma etapa do ciclo que leva à aprovação:</p>
+      <p><span class="k">F · Foco</span>Saber exatamente o que estudar. O edital verticalizado e o cronograma acabam com a dispersão.</p>
+      <p><span class="k">A · Aplicação</span>Teoria certa, com exemplos no contexto policial, do jeito que fixa de verdade.</p>
+      <p><span class="k">R · Revisão</span>Revisar no tempo certo pra não esquecer o que já custou pra aprender.</p>
+      <p><span class="k">D · Diagnóstico</span>Medir seu nível real com simulados no padrão CRS e gabarito comentado.</p>
+      <p><span class="k">A · Aprovação</span>O resultado natural de repetir esse ciclo com constância até o dia da prova.</p>
+      <p><span class="k">Fecho</span>Não é motivação vazia. É um sistema repetível: você roda o ciclo FARDA toda semana e chega na prova sabendo onde está e o que ainda falta.</p>
+      <p><span class="k">Botão</span>Quero seguir o Método FARDA</p></div>
+    <div class="rec"><h4>Ideia da disposição</h4><p>A própria cópia diz que as 4 primeiras letras são o que se repete toda semana e que o último A é o resultado. O esboço mostra isso:</p>
+      <ul><li><b>F → A → R → D</b> ficam dentro de uma moldura chamada “ciclo semanal”, ligados por setas. Uma seta de retorno leva do D de volta ao F.</li>
+      <li>O último <b>A (Aprovação)</b> fica fora do ciclo, num cartão escuro de destaque: é aonde o ciclo leva.</li>
+      <li>No celular, as etapas ficam em coluna, com setas para baixo, e o cartão da Aprovação fecha a sequência.</li></ul></div>
+    <div><h4>Conferir</h4><p>No print, o fim do texto do F aparece cortado. Transcrevi como “acabam com a dispersão.”. Confirme se é isso mesmo.</p></div>
+  </div>
+</section>
+
+<!-- 09 -->
+<section class="block" id="b9">
+  <div class="block-head"><span class="num">09</span><h2>Como vai ser a sua jornada a partir de hoje</h2><span class="tag">passo a passo</span></div>
+  <div class="wf">
+    <div class="ln h2 w60"></div>
+    <div class="stack" style="gap:12px">
+      <div class="li" style="align-items:start"><span class="num">1</span><div class="stack" style="flex:1"><div class="ln h2 w70" style="height:10px"></div><div class="ln w90"></div></div></div>
+      <div class="li" style="align-items:start"><span class="num">2</span><div class="stack" style="flex:1"><div class="ln h2 w60" style="height:10px"></div><div class="ln w80"></div></div></div>
+      <div class="li" style="align-items:start"><span class="num">3</span><div class="stack" style="flex:1"><div class="ln h2 w50" style="height:10px"></div><div class="ln w90"></div></div></div>
+      <div class="li" style="align-items:start"><span class="num">4</span><div class="stack" style="flex:1"><div class="ln h2 w80" style="height:10px"></div><div class="ln w80"></div></div></div>
+      <div class="li" style="align-items:start"><span class="num">5</span><div class="stack" style="flex:1"><div class="ln h2 w50" style="height:10px"></div><div class="ln w70"></div></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Fazer o leitor se imaginar usando o produto desde o primeiro dia.</p></div>
+    <div class="copy"><h4>Cópia</h4>
+      <p><span class="k">Título</span>Como vai ser a sua jornada a partir de hoje</p>
+      <p><span class="k">Passo 1</span>Você recebe o acesso e abre o Edital Verticalizado.<br>Vê o mapa completo do que cai na prova, e o que é prioridade. Some a sensação de “não sei por onde começar”.</p>
+      <p><span class="k">Passo 2</span>Segue o cronograma semanal e o Planner de 30 dias.<br>Todo dia você já sabe o que estudar e vai marcando seus acertos. A rotina para de depender de força de vontade.</p>
+      <p><span class="k">Passo 3</span>Estuda pelas 5 apostilas completas.<br>Teoria direta ao ponto, com exemplos no contexto da PMMG. Você aprende de um jeito que fica.</p>
+      <p><span class="k">Passo 4</span>Faz os 5 simulados no padrão CRS e corrige com o gabarito comentado.<br>Descobre exatamente onde está seu nível e o que ajustar, semanas antes da prova, não em cima dela.</p>
+      <p><span class="k">Passo 5</span>Repete o ciclo FARDA até o dia da prova.<br>Chega no exame com preparo, rotina e confiança, não na base do “torcer pra cair o que eu estudei”.</p></div>
+    <div><h4>Componente</h4><p>Linha do tempo vertical numerada: a ordem importa aqui. Trocar os emojis 1️⃣–5️⃣ por marcadores gráficos.</p></div>
+  </div>
+</section>
+
+<!-- 10 -->
+<section class="block" id="b10">
+  <div class="block-head"><span class="num">10</span><h2>Tudo que você recebe no Combo</h2><span class="tag">entregáveis principais</span></div>
+  <div class="wf">
+    <div class="ln h2 w70" style="justify-self:center"></div>
+    <div class="row" style="--c:2">
+      <div class="card prod"><div class="ph img wide"><span>5 apostilas</span></div>
+        <div class="ln h2 w60" style="height:11px"></div><div class="ln h2 w50" style="height:11px"></div>
+        <div style="height:2px"></div>
+        <div class="ln w90"></div><div class="ln w80"></div>
+        <div style="height:2px"></div>
+        <div class="ln w80"></div><div class="ln w60"></div><div class="ln w70"></div>
+      </div>
+      <div class="card prod"><div class="ph img wide"><span>5 simulados CRS</span></div>
+        <div class="ln h2 w60" style="height:11px"></div><div class="ln h2 w50" style="height:11px"></div>
+        <div style="height:2px"></div>
+        <div class="ln w90"></div><div class="ln w80"></div>
+        <div style="height:2px"></div>
+        <div class="ln w80"></div><div class="ln w60"></div><div class="ln w70"></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Deixar tangível o que é o produto.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Tudo que você recebe no Combo da Aprovação PMMG 2027</p>
+      <p><span class="k">Item 1 · título</span>5 Apostilas Completas<br>com todo o edital da PMMG</p>
+      <p><span class="k">Item 1 · texto</span>Teoria de todos os assuntos cobrados,<br>organizada na ordem certa de estudo.</p>
+      <p>Você tem o edital inteiro na mão,<br>sem precisar caçar<br>material em dez lugares.</p>
+      <p><span class="k">Item 2 · título</span>5 Simulados no Padrão CRS<br>com gabarito comentado</p>
+      <p><span class="k">Item 2 · texto</span>Provas no formato da banca pra você<br>treinar do jeito que vai cair.</p>
+      <p>E o gabarito comentado explica o raciocínio<br>de cada questão, pra você aprender<br>com o erro na hora.</p></div>
+    <div><h4>Componente</h4><p>2 cartões grandes com imagem do material (capas ou páginas internas). Estes são os itens principais e ficam visualmente acima dos bônus.</p>
+      <p>Abaixo da imagem, todo o texto fica centralizado. O título do produto vem em 2 linhas, em negrito: nome do produto na primeira e complemento na segunda. Depois vêm 2 parágrafos curtos. Os dois cartões têm exatamente o mesmo número de linhas (7): título em 2 linhas, primeiro parágrafo em 2 e segundo parágrafo em 3. Assim os blocos ficam com a mesma altura. As quebras sugeridas estão na cópia e separam as frases por sentido, sem deixar palavra sozinha na última linha. No celular, os cartões ficam empilhados e as quebras podem se ajustar à largura. Mesmo assim, os dois cartões ficam com a mesma altura mínima.</p></div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section class="block" id="b11">
+  <div class="block-head"><span class="num">11</span><h2>+ 5 bônus</h2><span class="tag">empilhamento de valor</span></div>
+  <div class="wf">
+    <div class="ln h2 w60" style="justify-self:center"></div>
+    <div class="blist">
+      <div class="brow"><div class="ph img sq"><span>Bônus 1</span></div>
+        <div class="stack"><span class="chip">Bônus 1</span><div class="ln h2 w50" style="height:11px"></div><div class="ln w90"></div><div class="ln w70"></div></div></div>
+      <div class="brow flip"><div class="ph img sq"><span>Bônus 2</span></div>
+        <div class="stack"><span class="chip">Bônus 2</span><div class="ln h2 w40" style="height:11px"></div><div class="ln w90"></div><div class="ln w60"></div></div></div>
+      <div class="brow"><div class="ph img sq"><span>Bônus 3</span></div>
+        <div class="stack"><span class="chip">Bônus 3</span><div class="ln h2 w50" style="height:11px"></div><div class="ln w80"></div><div class="ln w60"></div></div></div>
+      <div class="brow flip"><div class="ph img sq"><span>Bônus 4</span></div>
+        <div class="stack"><span class="chip">Bônus 4</span><div class="ln h2 w40" style="height:11px"></div><div class="ln w90"></div><div class="ln w50"></div></div></div>
+      <div class="brow"><div class="ph img sq"><span>Bônus 5</span></div>
+        <div class="stack"><span class="chip">Bônus 5</span><div class="ln h2 w60" style="height:11px"></div><div class="ln w90"></div><div class="ln w80"></div></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Aumentar o valor percebido antes do preço.</p></div>
+    <div class="copy"><h4>Cópia</h4>
+      <p><span class="k">Título</span>E ainda leve mais 5 bônus para deixar sua preparação completa</p>
+      <p><span class="k">Bônus 1 · Edital Verticalizado</span>O edital destrinchado assunto por assunto: o que estudar, o que revisar e o que treinar em cada tópico. Você nunca mais fica perdido sobre o próximo passo.</p>
+      <p><span class="k">Bônus 2 · Planner de 30 Dias</span>Acompanhamento diário dos seus estudos e dos seus acertos. Você enxerga sua evolução preto no branco e mantém a constância que aprova.</p>
+      <p><span class="k">Bônus 3 · Cronograma de estudos</span>Sua semana toda montada: o que estudar em cada dia, sem precisar decidir nada no cansaço. É só abrir e seguir.</p>
+      <p><span class="k">Bônus 4 · Prompts da Aprovação</span>Comandos prontos pra usar a IA a seu favor nos estudos: é só copiar, colar e aprender mais rápido.</p>
+      <p><span class="k">Bônus 5 · Plano de Treino para o TAF</span>3 planos por nível (iniciante ao avançado) com os índices oficiais do edital e progressão semana a semana até você passar no teste físico.</p></div>
+    <div class="rec"><h4>Ideia da disposição</h4><p>Faixas alternadas em zigue-zague:</p>
+      <ul><li>5 faixas horizontais largas, uma embaixo da outra, separadas por uma linha fina.</li>
+      <li>A imagem troca de lado a cada faixa: esquerda no 1, 3 e 5, direita no 2 e 4. O texto acompanha o lado da imagem.</li>
+      <li>Sem barras, sombras ou sobreposição.</li>
+      <li>No celular, a imagem fica sempre à esquerda, menor, e o texto sempre alinhado à esquerda.</li></ul>
+      <p>Se o cliente quiser, dá para mostrar um “valor de referência” riscado em cada bônus, mas só se for um valor real.</p></div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section class="block" id="b12">
+  <div class="block-head"><span class="num">12</span><h2>Depoimentos de alunos</h2><span class="tag">prova social 2</span></div>
+  <div class="wf">
+    <div class="carousel">
+      <div class="card quote"><span class="qm">“</span><div class="ln w90"></div><div class="ln"></div><div class="ln w80"></div><div class="ln w60"></div><span class="qm end">”</span><span class="who">Ellen Souza</span></div>
+      <div class="card quote"><span class="qm">“</span><div class="ln w90"></div><div class="ln"></div><div class="ln w80"></div><div class="ln w60"></div><span class="qm end">”</span><span class="who">Matheus Ribeiro</span></div>
+      <div class="card quote"><span class="qm">“</span><div class="ln w90"></div><div class="ln"></div><div class="ln w80"></div><div class="ln w60"></div><span class="qm end">”</span><span class="who">Mariana Lima</span></div>
+      <div class="card quote more"><span class="qm">“</span><div class="ln w90"></div><div class="ln"></div><div class="ln w80"></div><div class="ln w60"></div><span class="qm end">”</span><span class="who">+ novos depoimentos</span></div>
+    </div>
+    <div class="car-nav"><span class="arrow">←</span><span class="dots">● ○ ○</span><span class="arrow">→</span></div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Reforçar a prova social logo antes da recapitulação e do preço.</p></div>
+    <div class="copy"><h4>Cópia</h4>
+      <p class="new"><span class="k">Formato (novo, no lugar dos prints)</span>Depoimento escrito, entre aspas, seguido só do nome da pessoa.</p>
+      <p><span class="k">Ellen Souza</span>Falta o texto do depoimento.</p>
+      <p><span class="k">Matheus Ribeiro</span>Falta o texto do depoimento.</p>
+      <p><span class="k">Mariana Lima</span>Falta o texto do depoimento.</p></div>
+    <div><h4>Componente</h4><p>Carrossel de cartões de depoimento, com espaço para incluir quantos depoimentos quiser depois. Cada cartão tem o texto entre aspas grandes e o nome embaixo, sem foto, @ ou cargo. Todos os cartões têm a mesma altura.</p>
+      <ul><li>Desktop: 3 cartões inteiros visíveis e a ponta do 4º, para indicar que dá para rolar.</li>
+      <li>Celular: 1 cartão e a ponta do próximo, com rolagem pelo dedo.</li>
+      <li>Setas ← → e bolinhas embaixo, que mostram a posição e aumentam conforme entram novos depoimentos.</li></ul>
+      <p>Mesma checagem de autorização do bloco 07.</p></div>
+  </div>
+</section>
+
+<!-- 13 -->
+<section class="block" id="b13">
+  <div class="block-head"><span class="num">13</span><h2>Recapitulando</h2><span class="tag">checklist</span></div>
+  <div class="wf">
+    <div class="ln h2 w50" style="justify-self:center"></div>
+    <div class="row" style="--c:2">
+      <div class="li"><i class="v">✓</i><div class="ln"></div></div>
+      <div class="li"><i class="v">✓</i><div class="ln w80"></div></div>
+      <div class="li"><i class="v">✓</i><div class="ln"></div></div>
+      <div class="li"><i class="v">✓</i><div class="ln w70"></div></div>
+      <div class="li"><i class="v">✓</i><div class="ln"></div></div>
+      <div class="li"><i class="v">✓</i><div class="ln w80"></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Resumir os benefícios em 10 segundos para quem pulou direto ao preço.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Recapitulando, com o Combo você:</p>
+      <p><span class="k">Lista ✓</span>Estuda o edital inteiro organizado, sem caçar PDF perdido<br>Sabe exatamente o que estudar todo dia com planner e cronograma<br>Mede seu nível real com simulados no padrão CRS<br>Aprende com o gabarito comentado em vez de só ver o “certo/errado”<br>Segue um método próprio (FARDA) em vez de estudar no escuro<br>Chega na prova com rotina e confiança, não no improviso</p></div>
+    <div><h4>Componente</h4><p>Título centralizado acima da lista. Os 6 itens com ✓ ficam em 2 colunas no desktop e em 1 coluna no celular.</p></div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section class="block" id="b14">
+  <div class="block-head"><span class="num">14</span><h2>Oferta: condição exclusiva</h2><span class="tag">preço</span></div>
+  <div class="wf center">
+    <span class="anno">CTA 4</span>
+    <div class="ln h w70"></div>
+    <div class="vlist">
+      <div class="vrow"><div class="ln w50"></div><span class="vprice">R$ 57,00</span></div>
+      <div class="vrow"><div class="ln w60"></div><span class="vprice">R$ 47,00</span></div>
+      <div class="vrow"><div class="ln w60"></div><span class="vprice">R$ 37,00</span></div>
+      <div class="vrow"><div class="ln w50"></div><span class="vprice">R$ 17,00</span></div>
+      <div class="vrow"><div class="ln w60"></div><span class="vprice">R$ 17,00</span></div>
+      <div class="vrow"><div class="ln w50"></div><span class="vprice">R$ 9,00</span></div>
+      <div class="vrow"><div class="ln w70"></div><span class="vprice">R$ 37,00</span></div>
+      <div class="vrow total"><span class="vlabel">Valor real do pacote</span><span class="vprice">R$ 221,00</span></div>
+    </div>
+    <div class="pricebox">
+      <span class="pb-lead">Hoje você leva tudo por apenas:</span>
+      <span class="pb-price">R$ 47,00</span>
+      <span class="pb-inst">à vista ou 6x de R$ 9,00 no cartão</span>
+      <p class="pb-note">Menos que uma pizza. Pra concorrer a uma vaga com salário de mais de R$ 5 mil<br>depois de formado, estabilidade e carreira.</p>
+      <div class="btn c" style="width:100%">Quero garantir meu combo por R$ 47</div>
+      <p class="pb-pay">Pagamento por Pix (aprovação na hora) ou cartão em até 11x.</p>
+      <div class="seals">
+        <div class="seal"><span class="ph seal-ic">escudo</span><span class="seal-t"><span>Checkout</span><b>Seguro</b></span></div>
+        <div class="seal"><span class="ph seal-ic">troféu</span><span class="seal-t"><span>Satisfação</span><b>Garantida</b></span></div>
+        <div class="seal"><span class="ph seal-ic">cadeado</span><span class="seal-t"><span>Privacidade</span><b>Protegida</b></span></div>
+      </div>
+      <div class="paylogos">
+        <span class="pay-lead">Pague com<br>segurança</span>
+        <span class="ph pl">Pix</span><span class="ph pl">Visa</span><span class="ph pl">Mastercard</span><span class="ph pl">PayPal</span><span class="ph pl">Boleto</span><span class="ph pl">Hipercard</span><span class="ph pl">Amex</span>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Fechar a venda: preço, ancoragem e botão.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Condição Exclusiva só HOJE!</p>
+      <p><span class="k">Lista de itens · valor riscado</span>5 Apostilas Completas — <s>R$ 57,00</s><br>5 Simulados CRS comentados — <s>R$ 47,00</s><br>Bônus 1 - Edital Verticalizado — <s>R$ 37,00</s><br>Bônus 2 - Planner de 30 dias — <s>R$ 17,00</s><br>Bônus 3 - Cronograma de Estudos — <s>R$ 17,00</s><br>Bônus 4 - Prompts da Aprovação — <s>R$ 9,00</s><br>Bônus 5 - Plano de treino para o TAF — <s>R$ 37,00</s></p>
+      <p><span class="k">Fecho da lista</span>Valor real do pacote: <s>R$ 221,00</s></p>
+      <p><span class="k">Chamada</span>Hoje você leva tudo por apenas:</p>
+      <p><span class="k">Preço</span>R$ 47,00</p>
+      <p><span class="k">Parcelamento</span>à vista ou 6x de R$ 9,00 no cartão</p>
+      <p class="lbl" style="font-size:11.5px">Confirmado: o total de 6x (R$ 54) inclui a taxa da plataforma de vendas.</p>
+      <p><span class="k">Texto (2 linhas)</span>Menos que uma pizza. Pra concorrer a uma vaga com salário de mais de R$ 5 mil<br>depois de formado, estabilidade e carreira.</p>
+      <p><span class="k">Botão</span>Quero garantir meu combo por R$ 47</p>
+      <p><span class="k">Abaixo do botão (itálico)</span>Pagamento por Pix (aprovação na hora) ou cartão em até 11x.</p>
+      <p><span class="k">Selos</span>Checkout Seguro · Satisfação Garantida · Privacidade Protegida</p>
+      <p><span class="k">Formas de pagamento</span>Pague com segurança: Pix · Visa · Mastercard · PayPal · Boleto · Hipercard · American Express</p></div>
+    <div><h4>Componente</h4><p>Título grande centralizado. Depois vem a lista dos 7 itens, com o nome à esquerda e o valor riscado em vermelho à direita, separados por linhas tracejadas. A lista fecha com “Valor real do pacote” numa faixa com fundo um tom mais escuro que o fundo da seção. É um contraste leve, que separa o total sem pesar.</p>
+      <p>Abaixo fica a caixa de preço, centralizada: a chamada; o “R$ 47,00” grande e verde, sem fundo, com o cifrão, o 47 e os centavos no mesmo tamanho; o parcelamento num tom mais discreto; o texto da pizza sem fundo, em no máximo 2 linhas (no desktop, quebra depois de “R$ 5 mil”); e o botão na largura total da caixa.</p>
+      <p>Abaixo do botão vem a linha de pagamento, em itálico. Depois vêm os 3 selos lado a lado, cada um com ícone e texto em 2 linhas (a primeira palavra normal e a segunda em negrito). Por último, a faixa “Pague com segurança”, com os logos das formas de pagamento em tons de cinza, menores que os selos. No celular, selos e logos quebram em mais linhas, sempre centralizados.</p></div>
+    <div class="rec"><h4>Pendências</h4><ul><li><b>6x ou 11x:</b> acima do botão, o texto diz “6x de R$ 9,00”. Abaixo, diz “cartão em até 11x”. Alinhar os dois (por exemplo, “até 11x” só se o parcelamento maior também for oferecido).</li><li>“Só hoje” exige prazo verdadeiro. Se não houver, trocar por “condição de lançamento”.</li><li>Conferir o salário de Soldado no edital vigente antes de publicar.</li></ul></div>
+  </div>
+</section>
+
+<!-- 15 -->
+<section class="block" id="b15">
+  <div class="block-head"><span class="num">15</span><h2>Garantia de 14 dias</h2><span class="tag">redução de risco</span></div>
+  <div class="wf">
+    <div class="guar">
+      <div class="ph sq" style="border-radius:50%"><span>selo<br>garantia 14 dias</span></div>
+      <div class="stack">
+        <span class="chip ok">✓ Garantia incondicional</span>
+        <div class="ln h w80"></div>
+        <div style="height:2px"></div>
+        <div class="ln w90"></div><div class="ln"></div><div class="ln w90"></div><div class="ln w50"></div>
+        <div class="ln h2 w40" style="background:var(--ok);opacity:1"></div>
+        <div class="pills"><span>✓ <i class="ln"></i></span><span>✓ <i class="ln"></i></span><span>✓ <i class="ln"></i></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Eliminar a objeção “e se eu não gostar?”.</p></div>
+    <div class="copy"><h4>Cópia</h4>
+      <p><span class="k">Etiqueta</span>GARANTIA INCONDICIONAL</p>
+      <p><span class="k">Título</span>O risco é meu, não seu</p>
+      <p><span class="k">Texto</span>Entra, abre as apostilas, testa os simulados, segue o cronograma.<br>Se em 14 dias você sentir que não é pra você, por qualquer motivo,<br>é só pedir o reembolso — devolvo 100% do seu dinheiro,<br>sem pergunta nenhuma, sem burocracia.</p>
+      <p><span class="k">Destaque</span>Sem burocracia.</p>
+      <p><span class="k">Selos pequenos</span>14 dias de garantia · Reembolso total · Sem perguntas</p></div>
+    <div><h4>Componente</h4><p>Selo redondo da garantia à esquerda. À direita, na ordem: etiqueta com ✓, título grande, texto em 4 linhas, “Sem burocracia.” em destaque verde e 3 selos pequenos com ✓ lado a lado. No celular, o selo fica menor e centralizado acima do texto, e os 3 selos pequenos podem quebrar em 2 linhas. O bloco fica logo depois da oferta.</p></div>
+  </div>
+</section>
+
+<!-- 16 -->
+<section class="block" id="b16">
+  <div class="block-head"><span class="num">16</span><h2>Perguntas frequentes</h2><span class="tag">acordeão</span></div>
+  <div class="wf">
+    <div class="ln h2 w50" style="justify-self:center"></div>
+    <div class="faqs">
+      <div class="fq open"><div class="fq-q"><span>O conteúdo cobre o edital da PMMG 2027?</span><span class="fq-ic">−</span></div>
+        <div class="fq-a"><div class="ln w90"></div><div class="ln w70"></div></div></div>
+      <div class="fq"><div class="fq-q"><span>Como eu recebo o material?</span><span class="fq-ic">+</span></div></div>
+      <div class="fq"><div class="fq-q"><span>E se eu não gostar?</span><span class="fq-ic">+</span></div></div>
+      <div class="fq"><div class="fq-q"><span>Preciso comprar mais alguma coisa além disso?</span><span class="fq-ic">+</span></div></div>
+      <div class="fq"><div class="fq-q"><span>É tudo digital? Eu queria material impresso.</span><span class="fq-ic">+</span></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Responder as últimas objeções sem tirar a pessoa da página.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>Perguntas frequentes</p>
+      <p><span class="k">Perguntas</span>O conteúdo cobre o edital da PMMG 2027?<br>Como eu recebo o material?<br>E se eu não gostar?<br>Preciso comprar mais alguma coisa além disso?<br>É tudo digital? Eu queria material impresso.</p>
+      <p><span class="k">Respostas</span>Ficam ocultas no acordeão do original. Falta coletar.</p></div>
+    <div><h4>Componente</h4><p>Título centralizado. Abaixo, uma coluna estreita e centralizada com as perguntas, cada uma num cartão próprio com cantos arredondados e um botão redondo “+” à direita. Ao abrir, o “+” vira “−” e fica em destaque, a borda do cartão escurece e a resposta aparece abaixo de uma linha tracejada. A primeira pergunta já vem aberta, para mostrar que dá para clicar. Só uma resposta fica aberta por vez. No celular, a coluna ocupa a largura toda.</p></div>
+    <div><h4>Sugestão</h4><p>Considerar incluir “E se o edital mudar?” e “Por quanto tempo tenho acesso?”.</p></div>
+  </div>
+</section>
+
+<!-- 17 -->
+<section class="block" id="b17">
+  <div class="block-head"><span class="num">17</span><h2>Chamada final + rodapé</h2><span class="tag">fechamento</span></div>
+  <div class="wf dark center">
+    <span class="anno">CTA 5</span>
+    <div class="ln h2 w80"></div>
+    <div class="ln w90"></div><div class="ln w80"></div><div class="ln w90"></div><div class="ln w60"></div>
+    <div class="ln h2 w50" style="opacity:.55"></div>
+    <div class="btn">Sim, quero passar na PMMG 2027</div>
+    <div class="foot">
+      <div class="ph foot-logo"><span>logo<br>Método da Aprovação</span></div>
+      <div class="stack"><div class="ln s w90"></div><div class="ln s"></div><div class="ln s w90"></div><div class="ln s"></div><div class="ln s w80"></div><div class="ln s w50"></div></div>
+    </div>
+  </div>
+  <div class="notes">
+    <div><h4>Objetivo</h4><p>Última escolha: continuar no escuro ou começar hoje.</p></div>
+    <div class="copy"><h4>Cópia</h4><p><span class="k">Título</span>A vaga vai existir. A pergunta é: você vai chegar preparado?</p>
+      <p><span class="k">Texto</span>Os editais da PMMG estão previstos, as vagas vão abrir, e milhares de candidatos vão disputar cada uma delas. A diferença entre quem passa e quem fica pra trás quase nunca é o esforço. É a direção.</p>
+      <p>Você pode continuar estudando no escuro, juntando material solto e torcendo pra dar certo.</p>
+      <p>Ou pode começar hoje com o mapa completo na mão, um método pra seguir e o edital inteiro organizado, por R$ 47, com 14 dias de garantia e risco zero.</p>
+      <p><span class="k">Fecho</span>A farda espera por quem se prepara de verdade.</p>
+      <p><span class="k">Botão</span>Sim, quero passar na PMMG 2027</p>
+      <p><span class="k">Rodapé · logo</span>Método da Aprovação</p>
+      <p><span class="k">Rodapé · aviso</span>Conteúdo educacional de preparação para concurso. Material sem vínculo oficial com a Polícia Militar de Minas Gerais (PMMG) ou com a banca CRS. As informações sobre o concurso (vagas, requisitos, datas, remuneração e conteúdo programático) são de referência e podem mudar — consulte sempre o edital oficial publicado para informações definitivas.</p></div>
+    <div class="rec"><h4>Recomendação</h4><p>O botão fica logo após o fecho “A farda espera…”, com o mesmo texto da página original.</p>
+      <p>Rodapé: logo “Método da Aprovação” à esquerda e o aviso legal à direita, em texto pequeno e cor discreta. No celular, o logo fica centralizado acima do texto. O “Feito pelo Deskfunnel” da página original sai.</p></div>
+  </div>
+</section>
+
+<!-- Summary -->
+<section class="sum">
+  <span class="eyebrow">Diretrizes gerais</span>
+  <h2>O que muda em relação à página atual</h2>
+  <div class="sum-grid">
+    <div><h3>Conversão</h3><ul>
+      <li>5 CTAs no total: hero, estudar com direção, Método FARDA, oferta e fechamento. Todos levam ao mesmo checkout.</li>
+      <li>No celular, barra de compra fixa no rodapé que aparece depois do bloco 05.</li>
+      <li>Garantia vira bloco próprio, colado à oferta.</li>
+    </ul></div>
+    <div><h3>Conteúdo em imagem → texto</h3><ul>
+      <li>Comparativo (06), Método FARDA (08) e oferta (14) estão hoje dentro de imagens.</li>
+      <li>Refazer em HTML para ficar legível no celular, carregar mais rápido e ser indexável.</li>
+      <li>Emojis (➡️ ❌ ✅ 1️⃣ 🎁) viram ícones do sistema visual.</li>
+    </ul></div>
+    <div><h3>Pedir ao cliente</h3><ul>
+      <li>Respostas da FAQ.</li>
+      <li>Texto dos depoimentos de Ellen, Matheus e Mariana (bloco 12).</li>
+      <li>Autorização dos depoimentos, prints e áudio, e de quem é o áudio.</li>
+      <li>Prazo real da condição “só hoje”.</li>
+      <li>Fotos ou mockups das apostilas, dos simulados e dos bônus.</li>
+    </ul></div>
+  </div>
+</section>
+
+</div>
+
+</body></html>
