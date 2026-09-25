@@ -50,6 +50,7 @@ Referências usadas: pv.monsterconcursos.com.br (fundo, animações, gradientes,
 - **Oferta:** grade com as capas, lista de valores e caixa de preço.
 - **Botões de compra:** "Quero garantir meu combo por R$ 47" (oferta) e "Sim, quero passar na PMMG 2027" (chamada final) levam ao checkout da Cakto: `https://pay.cakto.com.br/e5ah5n8_1006158`. Os outros 3 botões descem até a oferta.
 - **Barra de compra fixa no celular:** foi removida de propósito, porque a página já tem os botões estratégicos.
+- **Depoimentos do bloco 07:** 5 estrelas no topo de cada cartão.
 - **Carrossel de depoimentos:** passa sozinho a cada 4,5 s e pausa com mouse, dedo ou teclado.
 - **Linha da jornada (bloco 09):** cresce e recua com a rolagem.
 
